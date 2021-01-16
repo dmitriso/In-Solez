@@ -14,7 +14,12 @@ module.exports = function(sequelize, DataTypes) {
   Collection.associate = models => {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Collection.belongsTo(models.User, { foreignKey: "id" });
+    Collection.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+        value: "id"
+      }
+    });
   };
   return Collection;
 };
