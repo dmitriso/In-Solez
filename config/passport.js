@@ -8,13 +8,13 @@ passport.use(
   new LocalStrategy(
     // Our user will sign in using an email, rather than a "username"
     {
-      usernameField: "email"
+      usernameField: "userName"
     },
     (email, password, done) => {
       // When a user tries to sign in this code runs
       db.User.findOne({
         where: {
-          email: email
+          userName: userName
         }
       }).then(dbUser => {
         // If there's no user with the given email
