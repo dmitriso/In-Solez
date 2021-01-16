@@ -2,6 +2,8 @@ module.exports = function (sequelize, DataTypes) {
     const Collection = sequelize.define("Collection", {
         // The email cannot be null, and must be a proper email before creation
         sneaker: DataTypes.int,
+        owned: DataTypes.BOOLEAN,
+        topFive: DataTypes.BOOLEAN,
         userId: DataTypes.STRING,
         
     });

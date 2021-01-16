@@ -10,6 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         releaseDate: DataTypes.INT,
         saleable: DataTypes.BOOLEAN,
         tradeable: DataTypes.BOOLEAN,
+        owned: DataTypes.BOOLEAN,
         topFive: DataTypes.BOOLEAN
     });
  Sneaker.associate = function (models) {

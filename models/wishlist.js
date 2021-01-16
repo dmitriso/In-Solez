@@ -2,6 +2,7 @@ module.exports = function (sequelize, DataTypes) {
         const Wishlist = sequelize.define("Wishlist", {
             // The email cannot be null, and must be a proper email before creation
             sneaker: DataTypes.int,
+            owned: DataTypes.BOOLEAN,
             userId: DataTypes.STRING,
 
         });
