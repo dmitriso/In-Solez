@@ -12,7 +12,7 @@ module.exports = function (app) {
   });
   // THIS ROUTE CREATES A NEW USER ROW 
   app.post("/api/signup", (req, res) => {
-    var user = req.body;
+    const user = req.body;
     db.User.create({
       firstName: user.firstName,
       lastName: user.lastName,
@@ -27,10 +27,21 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
+  // ROUTE FOR LOGGING USER OUT
+  app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+  });
+  // ROUTE FOR GETTING SOME DATA ABOUT OUR USER TO BE USED CLIENT SIDE
+  app.get("/api/user_data", (req, res) => {
+    if (!req.user) {
+      res.json({});
+    } else {
 
-
-
-
-
-
+      res.json({
+        userName: req.user.userName,
+        id: req.user.id
+      });
+    }
+  });
 };
