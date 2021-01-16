@@ -1,7 +1,7 @@
-// Requiring path to so we can use relative routes to our HTML files
+// REQUIRING PATH TO SO WE CAN USE RELATIVE ROUTES TO OUR HTML FILES
 const path = require("path");
 
-// Requiring our custom middleware for checking if a user is logged in
+// REQUIRING OUR CUSTOM MIDDLEWARE FOR CHECKING IF A USER IS LOGGED IN 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {

@@ -37,7 +37,6 @@ module.exports = function (app) {
     if (!req.user) {
       res.json({});
     } else {
-
       res.json({
         userName: req.user.userName,
         id: req.user.id
