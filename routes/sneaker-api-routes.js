@@ -1,6 +1,6 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/v1/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then(dbSneaker => {
@@ -23,7 +23,7 @@ module.exports = function(app) {
       res.json(dbSneaker);
     });
   });
-// THIS UPDATES A SNEAKERS OWNED STATUS
+  // THIS UPDATES A SNEAKERS OWNED STATUS
   app.put("/api/sneaker/:id", (req, res) => {
     db.Sneaker.update(req.owned, {
       where: {
@@ -33,4 +33,5 @@ module.exports = function(app) {
       res.json(dbSneaker);
     });
   });
+
 };
