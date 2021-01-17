@@ -15,6 +15,13 @@ module.exports = function(app) {
       req.json(dbSneaker);
     });
   });
-
+  //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
+  app.delete("/api/sneaker/:id", (req, res) => {
+    db.Sneaker.destroy({
+      where: { id: req.params.id }
+    }).then(dbSneaker => {
+      res.json(dbSneaker);
+    });
+  });
 
 };
