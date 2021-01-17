@@ -3,6 +3,21 @@ $(document).ready(() => {
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.userName);
-    $get("/");
+    $.get("https://api.thesneakerdatabase.com/v1/sneakers?limit=30").then(
+      sneakerData => {
+        console.log(sneakerData.results);
+
+        sneakerData.results.forEach(sneaker => {
+          const $clone = $("#sneaker")
+            .clone()
+            .removeAttr("id");
+          $clone.find(".sneakerName").text(sneaker.name);
+          $clone.find(".brand").text(sneaker.brand);
+          $clone.find(".shoeName").text(sneaker.shoe);
+          $clone.find("img").prop("src", sneaker.media.thumbUrl);
+          $clone.appendTo("#sneakers");
+        });
+      }
+    );
   });
 });
