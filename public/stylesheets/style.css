@@ -1,4 +1,80 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+@font-face {
+  font-family: 'PhillySans-Regular';
+    src: url('fonts/PhillySans-Regular.eot'); /* IE9 Compat Modes
+    src: url('fonts/PhillySans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/PhillySans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/PhillySans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+        url('fonts/PhillySans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('fonts/PhillySans-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-weight: 400;
+}
+
+/* Style links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  margin-top: 10px;
+  padding: 23px 25px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 10px;
+}
+
+/* Color of links on hover */
+.topnav a:hover {
+  background-color: #5090f0;
+  color: white;
+} 
+
+/* Logo in navigation */
+.logo img {
+  float:left;
+}
+
+.container-fluid {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: white;
+  letter-spacing: 20px;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: url("/public/images/nike-sneaker.png");
+  height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
 }
