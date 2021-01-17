@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Philly Sans';
+    src: url('PhillySans-Regular.eot');
+    src: url('PhillySans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('PhillySans-Regular.woff2') format('woff2'),
+        url('PhillySans-Regular.woff') format('woff'),
+        url('PhillySans-Regular.ttf') format('truetype'),
+        url('PhillySans-Regular.svg#PhillySans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
