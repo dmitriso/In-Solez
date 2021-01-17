@@ -7,7 +7,14 @@ module.exports = function(app) {
       res.json(dbSneaker);
     });
   });
-
+  //THIS GETS A SPECIFIC SNEAKER BY THE ID AND RETURNS IT TO THE USER.
+  app.get("/api/sneakers/:id", (req, res) => {
+    db.Sneaker.findOne({
+      where: { id: req.params.id }
+    }).then(dbSneaker => {
+      req.json(dbSneaker);
+    });
+  });
 
 
 };
