@@ -204,35 +204,22 @@ hr {
 }
 
 /* Search Page */
-.search-bar {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 40%;
-  background: #f1f1f1;
+
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
 
-.search-btn button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: white;
-  background-color: #5090f0;
-  text-align: center;
-  cursor: pointer;
-  font-size: 18px;
-  width: 10%;
-}
-
-.search-btn button:hover {
-  background-color:white;
-  color: #5090f0;
-}
-
-.search-bar::after {
-  content: "";
-  clear: both;
-  display: table;
+input[type=text]:focus {
+  width: 100%;
 }
