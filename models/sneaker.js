@@ -12,10 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN
   });
-//   Sneaker.associate = models => {
-//     // Associating Author with Posts
-//     // When an Author is deleted, also delete any associated Posts
-//     Sneaker.hasMany(models.User, { foreignKey: "id" });
-//   };
+  Sneaker.associate = models => {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Sneaker.hasMany(models.User, { foreignKey: "id" });
+  };
   return Sneaker;
 };
