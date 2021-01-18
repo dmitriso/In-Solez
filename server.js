@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== "production"){
+if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
@@ -6,7 +6,8 @@ if (process.env.NODE_ENV !== "production"){
 const express = require("express");
 const session = require("express-session");
 const flash = require("express-flash");
-
+const exphbs = require("express-handlebars");
+const path = require("path");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 // const mysql = require("mysql");
@@ -15,11 +16,12 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
+
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(flash());
 
 // We need to use sessions to keep track of our user's login status
@@ -52,15 +54,23 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 // sessionStore.close();
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
   next();
-})
+});
 
-// This sets up the Express Handlebars
-var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// view engine setup
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
+app.engine(
+  "hbs",
+  exphbs({
+    extname: "hbs",
+    defaultLayout: "index",
+    layoutsDir: __dirname + "/views/layouts/",
+    partialsDir: __dirname + "/views/partials/"
+  })
+);
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
