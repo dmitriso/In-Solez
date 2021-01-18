@@ -9,7 +9,7 @@
     <title>In-Solez | Search</title>
 
     <!-- {{!-- This is the link to the CSS document --}} -->
-    <link rel="stylesheet" href="/public/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
     <!-- {{!-- This is the link for the jQuery --}} -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- {{!-- This is the link for the Bootstap CSS --}} -->
@@ -22,7 +22,7 @@
     <!-- {{!-- This is the link for the Gogole Open Sans Condensed Font --}} -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <!-- {{!-- This is the link for the Javascript document--}} -->
-    <script src="/public/js/home.js"></script>
+    <script src="/js/home.js"></script>
 
 </head>
 
@@ -33,15 +33,15 @@
 
         <header>
             <div class="logo">
-                <img src="/public/images/in-solez-minimal-logo.png" width="200" height="100" alt="sneakers" />
+                <img src="/images/in-solez-minimal-logo.png" width="200" height="100" alt="sneakers" />
             </div>
             <div class="topnav">
                 <nav id="navigation">
-                    <a href="#search">SEARCH</a>
-                    <a href="#signup">SIGN UP</a>
-                    <a href="#login">LOG IN</a>
-                    <a href="#members">MEMBER PROFILE</a>
-                    <a class="active" href="#home">HOME</a>
+                    <a href="search">SEARCH</a>
+                    <a href="signup">SIGN UP</a>
+                    <a href="login">LOG IN</a>
+                    <a href="members">MEMBER PROFILE</a>
+                    <a class="active" href="home">HOME</a>
                 </nav>
                 <br>
                 <br>
@@ -59,17 +59,18 @@
                 <p>Look For a Sneaker or Sneaker Head</p>
                 <hr>
                 <br>
-                <form class="search-bar" style="margin:auto;max-width:10px">
-                    <input type="text" placeholder="Search.." name="search2">
-                    <div class="search-btn">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                <div class="col-md-8">
+                    <div class="search-box">
+                        <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..."
+                            autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list"
+                            aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
+                            style="position: relative; vertical-align: middle;" dir="auto">
                     </div>
-                </form>
-
-
+                </div>
             </div>
         </form>
 
     </body>
 
+</body>
 </html>
