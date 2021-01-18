@@ -3,7 +3,9 @@ const db = require("../models");
 module.exports = function(app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
-    db.Sneaker.findAll({}).then(dbSneaker => {});
+    db.Sneaker.findAll({}).then(dbSneaker => {
+      res.json(dbSneaker);
+    });
   });
 
   //THIS GETS A SPECIFIC SNEAKER BY "SHOE" AND RETURNS IT TO THE USER.
@@ -13,7 +15,18 @@ module.exports = function(app) {
         shoe: req.params.shoe
       }
     }).then(dbSneaker => {
-      req.json(dbSneaker);
+      res.json(dbSneaker);
+    });
+  });
+
+  // Get route for returning posts of a specific category
+  app.get("/api/posts/category/:brand", (req, res) => {
+    db.Post.findAll({
+      where: {
+        brand: req.params.brand
+      }
+    }).then(dbBrand => {
+      res.json(dbBrand);
     });
   });
 
@@ -27,7 +40,7 @@ module.exports = function(app) {
       where: query,
       include: [db.User]
     }).then(dbCollection => {
-      req.json(dbCollection);
+      res.json(dbCollection);
     });
   });
 
