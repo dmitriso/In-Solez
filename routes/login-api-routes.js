@@ -43,7 +43,11 @@ module.exports = function (app) {
 
   // ROUTE FOR LOGGING USER OUT
   app.get("/logout", (req, res) => {
-   res.status(200).end()
+    req.logout();
+    req.session.destroy(() => {
+      res.clearCookie("connect.sid");
+      res.redirect("/");
+    });
   });
   // ROUTE FOR GETTING SOME DATA ABOUT OUR USER TO BE USED CLIENT SIDE
   app.get("/api/user_data", (req, res) => {
@@ -55,7 +59,8 @@ module.exports = function (app) {
         id: req.user.id
       });
     }
-  });
+  })
+
   // checks to see if the user is logged 
   // checkAuthenticated = ((req, res, next) => {
   //   if (req.isAuthenticated()) {

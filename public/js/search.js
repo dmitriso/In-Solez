@@ -1,7 +1,7 @@
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $("#random").on("submit", event => {
+  $("button#random-search-button").on("submit", event => {
     event.preventDefault();
     let randomNum = Math.floor(Math.random() * 350 + 1);
     $.get(
@@ -22,7 +22,7 @@ $(document).ready(() => {
     });
   });
 
-  $("#brand").on("submit", event => {
+  $("input#brand-search-input").on("submit", event => {
     event.preventDefault();
     const selectedBrand = $("#option").val();
     $.get(
@@ -41,10 +41,10 @@ $(document).ready(() => {
     });
   });
 
-  $("#shoe").on("submit", event => {
+  $("input#sneaker-search-input").on("submit", event => {
     event.preventDefault();
     const shoeInput = toLowerCase(
-      $("#shoe-input")
+      $("#sneaker-search-input")
         .val()
         .trim()
     );

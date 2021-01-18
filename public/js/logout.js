@@ -1,11 +1,7 @@
 $(document).ready(() => {
-
-  $("#logout").on("click", () => {
-    $.get("/login", {
-  
-    }).then(()=>{
-         req.logout();
-         res.redirect("/");
+  $("button#logout").on("click", () => {
+    $.get("/logout", {}).then(() => {
+      console.log(logout);
+    });
   });
-
 });
