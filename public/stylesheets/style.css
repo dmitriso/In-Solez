@@ -1,4 +1,222 @@
-form.signup,
-form.login {
+/* Home Page */
+/* Style links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  margin-top: 10px;
+  padding: 23px 25px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 300;
+  letter-spacing: 10px;
+}
+
+/* Color of links on hover */
+.topnav a:hover {
+  background-color: #5090f0;
+  color: white;
+} 
+
+/* Logo in navigation */
+.logo img {
+  float:left;
+}
+
+.container-fluid {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: white;
+  letter-spacing: 20px;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: url("/images/nike-sneaker.png");
+  height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.page-content {
+  text-align: center;
+  color: white;
+  letter-spacing: 10px;
+}
+
+.home-login-btn button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(91, 88, 88, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  font-size: 18px;
+}
+
+.home-login-btn button:hover {
+  background-color:white;
+  color: #5090f0;
+}
+
+
+
+/* Sign Up & Login Page Elements */
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.container h1{
+  color: white;
+  letter-spacing: 7px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.container p{
+  color: white;
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.form-text b{
+  color: white;
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.form-text label{
+  color: white;
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.signup-btn button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.signup-btn button:hover {
+  background-color:white;
+  color: #5090f0;
+}
+
+.login-btn button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.login-btn button:hover {
+  background-color:white;
+  color: #5090f0;
+}
+
+
+/* Member Collection and Wish List Pages */
+.grid { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 3fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+.grid img {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(252, 252, 252, 0.3);
+  max-width: 100%;
+}
+
+/* Member Profile Page */
+.item{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+  grid-gap: 20px;
+  align-items: stretch;
   margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.item img {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(252, 252, 252, 0.3);
+  max-width: 100%;
+}
+
+#index-gallery{
+  width:465px;
+}
+
+/* Search Page */
+.random-search-btn button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.random-search-btn button:hover {
+  background-color:white;
+  color: #5090f0;
 }

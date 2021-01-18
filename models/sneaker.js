@@ -3,7 +3,6 @@ module.exports = function(sequelize, DataTypes) {
     // The email cannot be null, and must be a proper email before creation
     brand: DataTypes.STRING,
     name: DataTypes.STRING,
-    userName: DataTypes.STRING,
     userPrice: DataTypes.INTEGER,
     retailPrice: DataTypes.INTEGER,
     marketValue: DataTypes.INTEGER,
@@ -13,10 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN
   });
-  Sneaker.associate = function(models) {
+  Sneaker.associate = models => {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Sneaker.hasMany(models.User);
+    Sneaker.hasMany(models.User, { foreignKey: "id" });
   };
   return Sneaker;
 };
