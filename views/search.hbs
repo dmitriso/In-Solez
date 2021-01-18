@@ -1,20 +1,34 @@
-<body style="background-color:rgb(7, 7, 7);">
-    <!-- Nav Bar Menu Items -->
-    {{> navbar}}
+<!-- Nav Bar Menu Items -->
+{{> navbar}}
 
-    <form style="border:1px solid #ccc padding:10px">
-        <div class="container">
-            <h1>SEARCH</h1>
-            <p>Look For a Sneaker or Sneaker Head</p>
-            <hr>
-            <br>
-            <div class="col-md-8">
-                <div class="search-box">
-                    <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..."
-                        autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list"
-                        aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
-                        style="position: relative; vertical-align: middle;" dir="auto">
+<form style="border:1px solid #ccc padding:10px">
+    <div class="container">
+        <h1>SEARCH</h1>
+        <p>Look For a Sneaker or Sneaker Head</p>
+        <hr>
+        <br>
+        <div class="col-md-8">
+            <div class="search-box">
+                <input type="search" class="form-control ds-input" id="sneaker-search-input"
+                    placeholder="Search for a sneaker..." autocomplete="off" spellcheck="false" role="combobox"
+                    aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
+                    style="position: relative; vertical-align: middle;" dir="auto">
 
+                    <br> 
+
+                    <input type="search" class="form-control ds-input" id="brand-search-input"
+                    placeholder="Search for a sneaker brand..." autocomplete="off" spellcheck="false" role="combobox"
+                    aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
+                    style="position: relative; vertical-align: middle;" dir="auto">
+
+                    <br>
+
+                    <div class="random-search-btn" id="random-search-btn">
+                        <button class="button">Click To See Random Sneakers</button>
+                    </div>
+                    
+                    <br>
+                    
                     <div class="container">
                         <h1 class="member-name"></h1>
                         <div id="sneakers">
@@ -30,9 +44,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
-    </form>
+    </div>
+</form>
 
 </body>

@@ -1,0 +1,34 @@
+{{!-- <main class="grid">
+        <img src=/images/yeezy-black-red.png alt="yeezy-black-red">
+        <img src=/images/adidas-tan.png alt="adidas-tan">
+        <img src=/images/nike-flywire-black.png alt="nike-flywire">
+        <img src=/images/nike-air-max-red.png alt="nike-air-max">
+        <img src=/images/jordans.png alt="jordans">
+        <img src=/images/nike-sneaker.png alt="nike-sneaker">
+      </main> --}}
+
+<main class="grid">
+      <div class="container">
+            <h1 class="member-name"></h1>
+            <div id="sneakers">
+                <div id="sneaker" class="col-md-55">
+                    <div class="thumbnail">
+                        <ul class="sneakerInfo">
+                            {{#each sneakers}}
+                            {{#if owned}}
+                            <h2>{{sneaker.name}}</h2>
+
+                            <h2>{{sneaker.brand}}</h2>
+
+                            <h2>{{sneaker.shoe}}</h2> 
+                            
+                            <h2>{{sneaker.media.thumbUrl}}</h2>
+
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>

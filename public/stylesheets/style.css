@@ -203,3 +203,20 @@ hr {
   width:465px;
 }
 
+/* Search Page */
+.random-search-btn button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.random-search-btn button:hover {
+  background-color:white;
+  color: #5090f0;
+}
