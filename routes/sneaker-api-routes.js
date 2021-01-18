@@ -19,7 +19,7 @@ module.exports = function(app) {
     });
   });
 
-  // Get route for returning posts of a specific category
+  // GET ROUTE FOR RETURNING POSTS OF A SPECFIC BRAND
   app.get("/api/posts/category/:brand", (req, res) => {
     db.Post.findAll({
       where: {
