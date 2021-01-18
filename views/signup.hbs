@@ -1,27 +1,7 @@
 <body style="background-color:rgb(7, 7, 7);">
   <!-- Nav Bar Menu Items -->
 
-  <header>
-    <div class="logo">
-      <img src="/public/images/in-solez-minimal-logo.png" width="200" height="100" alt="sneakers" />
-    </div>
-    <div class="topnav">
-      <nav id="navigation">
-        <a href="search">SEARCH</a>
-        <a href="signup">SIGN UP</a>
-        <a href="login">LOG IN</a>
-        <a href="members">MEMBER PROFILE</a>
-        <a class="active" href="home">HOME</a>
-      </nav>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
-  </header>
+  {{> navbar}}
 
   <form style="border:1px solid #ccc padding:10px">
     <div class="container">
@@ -30,6 +10,15 @@
       <hr>
 
       <div class="form-text">
+        <label for="firstName"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" name="firstName" required>
+
+        <label for="lastName"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" name="lastName" required>
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
 
