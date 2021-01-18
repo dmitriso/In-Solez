@@ -1,12 +1,9 @@
 const db = require("../models");
 
-
-module.exports = function (app) {
+module.exports = function(app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
-    db.Sneaker.findAll({}).then((dbSneaker) => {
-      res.render("member-collection",{sneakers: dbSneaker});
-    });
+    db.Sneaker.findAll({}).then(dbSneaker => {});
   });
 
   //THIS GETS A SPECIFIC SNEAKER BY "SHOE" AND RETURNS IT TO THE USER.
@@ -15,14 +12,21 @@ module.exports = function (app) {
       where: {
         shoe: req.params.shoe
       }
-    }).then((dbSneaker) => {
+    }).then(dbSneaker => {
       req.json(dbSneaker);
     });
   });
 
   //THIS GRABS A USERS COLLECTION TO DISPLAY IT
-  app.get("/api/collection", (req,res) => {
-    db.Collection.findAll({}).then((dbCollection) => {
+  app.get("/api/collection", (req, res) => {
+    const query = {};
+    if (req.query.User.id) {
+      query.userIdCollection = req.query.User.id;
+    }
+    db.Collection.findAll({
+      where: query,
+      include: [db.User]
+    }).then(dbCollection => {
       req.json(dbCollection);
     });
   });
@@ -31,9 +35,9 @@ module.exports = function (app) {
   app.delete("/api/sneakers", (req, res) => {
     db.Sneaker.destroy({
       where: {
-        id:req.params.id 
+        id: req.params.id
       }
-    }).then((dbSneaker) => {
+    }).then(dbSneaker => {
       res.json(dbSneaker);
     });
   });
@@ -44,9 +48,8 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       }
-    }).then((dbSneaker) => {
+    }).then(dbSneaker => {
       res.json(dbSneaker);
     });
   });
-
 };

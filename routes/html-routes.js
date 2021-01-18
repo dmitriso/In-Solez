@@ -17,12 +17,17 @@ module.exports = function(app) {
     // }
     res.render("login", { title: "InSolez||Login" });
   });
+
   app.get("/search", (req, res) => {
     // If the user already has an account send them to the members page
-    res.render("search", {
-      title: "InSolez||Search"
-    });
+    res.render("search", { title: "InSolez||Search" });
   });
+
+  app.get("/profile", (req, res) => {
+    // If the user already has an account send them to the members page
+    res.render("profile", { title: "InSolez||Profile" });
+  });
+
   app.get("/signup", (req, res) => {
     // If the user already has an account send them to the members page
     // if (req.user) {
