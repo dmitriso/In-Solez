@@ -5,9 +5,9 @@ const isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/profile");
-    }
+    // if (req.user) {
+    //   res.redirect("/profile");
+    // }
     res.render("home", { title: "InSolez||Homepages" });
   });
 
@@ -35,7 +35,7 @@ module.exports = function(app) {
       title: "InSolez||Signup"
     });
   });
-  
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/profile", isAuthenticated, (req, res) => {

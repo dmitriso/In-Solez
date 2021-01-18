@@ -48,11 +48,11 @@ getUserById = id => {
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
-  cb(null, user.id);
+  cb(null, user);
 });
 
-passport.deserializeUser((id, cb) => {
-  return cb(null, getUserById(id));
+passport.deserializeUser((user, cb) => {
+  return cb(null, user);
 });
 
 // Exporting our configured passport
