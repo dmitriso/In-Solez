@@ -1,15 +1,22 @@
 // Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
 const bcrypt = require("bcryptjs");
+const { STRING } = require("sequelize/types");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
     // The email cannot be null, and must be a proper email before creation
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    firstName: { DataTypes: STRING, isAlphanumeric: true, allowNull: true },
+    lastName: { DataTypes: STRING, allowNull: true },
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      Validate: {
+        len: {
+          args: [3, 20],
+          msg: "The user length should be between 6 and 20 characters."
+        }
+      }
     },
     email: {
       type: DataTypes.STRING,
@@ -25,8 +32,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: {
-          args: [8, 20],
-          msg: "The password length should be between 8 and 20 characters."
+          args: [6, 20],
+          msg: "The password length should be between 6 and 20 characters."
         }
       }
     }
