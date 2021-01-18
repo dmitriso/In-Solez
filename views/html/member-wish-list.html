@@ -75,6 +75,30 @@
         <br>
         <br>
 
+        <div class="container">
+            <h1 class="member-name"></h1>
+            <div id="sneakers">
+                <div id="sneaker" class="col-md-55">
+                    <div class="thumbnail">
+                        <ul class="sneakerInfo">
+                            {{ #each sneakers }}
+                            {{ #if owned }}
+                            <h2>{{sneaker.name}}</h2>
+
+                            <h2>{{sneaker.brand}}</h2>
+
+                            <h2>{{sneaker.shoe}}</h2> 
+                            
+                            <h2>{{sneaker.media.imageUrl}}</h2>
+
+                            {{ /if }}
+                            {{ /each }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 
 </body>
