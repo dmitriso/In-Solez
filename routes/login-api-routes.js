@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+// const router = express.Router();
+
 
 module.exports = function(app) {
   // THIS AUTHENTICATES THE USERS LOGIN NAME AND PASSWORD
@@ -50,6 +52,14 @@ module.exports = function(app) {
       });
     }
   });
-  // USER DATA SEARCH ROUTE
+
   
+
+  // router.get("/logout",(req,res) => {
+  //   req.logout();
+  //   req.session.destroy(() => {
+  //     res.clearCookie("connect.sid");
+  //     res.redirect("/");
+  //   });
+  // })
 };

@@ -1,17 +1,20 @@
 const db = require("../models");
 
+
 module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
-  app.get("/", (req, res) => {
+  app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then((dbSneaker) => {
-      res.json(dbSneaker);
+      res.render("member-collection",{sneakers: dbSneaker});
     });
   });
 
   //THIS GETS A SPECIFIC SNEAKER BY "SHOE" AND RETURNS IT TO THE USER.
   app.get("/api/sneakers/:shoe", (req, res) => {
     db.Sneaker.findOne({
-      where: { shoe: req.params.shoe }
+      where: {
+        shoe: req.params.shoe
+      }
     }).then((dbSneaker) => {
       req.json(dbSneaker);
     });
@@ -25,9 +28,11 @@ module.exports = function (app) {
   });
 
   //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
-  app.delete("", (req, res) => {
+  app.delete("/api/sneakers", (req, res) => {
     db.Sneaker.destroy({
-      where: { id: req.params.id }
+      where: {
+        id:req.params.id 
+      }
     }).then((dbSneaker) => {
       res.json(dbSneaker);
     });
@@ -43,8 +48,5 @@ module.exports = function (app) {
       res.json(dbSneaker);
     });
   });
-
-  // SEARCH ROUTE BY RANDOM(10,20,30),BRAND, OR SHOE
-
 
 };
