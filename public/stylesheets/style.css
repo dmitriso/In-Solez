@@ -37,7 +37,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: url("/public/images/nike-sneaker.png");
+  background-image: url("/images/nike-sneaker.png");
   height: 70%;
   background-position: center;
   background-repeat: no-repeat;

@@ -28,8 +28,10 @@ $(document).ready(() => {
       userName: userName,
       password: password
     })
-      .then(() => {
-        window.location.replace("/members");
+      // eslint-disable-next-line prefer-arrow-callback
+      .then(function(data) {
+        console.log(data);
+        window.location.replace("/profile");
         // If there's an error, log the error
       })
       .catch(err => {
