@@ -8,7 +8,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/profile");
     }
     res.render("home", { title: "InSolez||Homepage" });
   });
@@ -16,20 +16,25 @@ module.exports = function(app) {
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/profile");
     }
     res.render("login", { title: "InSolez||Login" });
   });
+
   app.get("/search", (req, res) => {
     // If the user already has an account send them to the members page
-    res.render("search", {
-      title: "InSolez||Search"
-    });
+    res.render("search", { title: "InSolez||Search" });
   });
+
+  app.get("/profile", (req, res) => {
+    // If the user already has an account send them to the members page
+    res.render("profile", { title: "InSolez||Profile" });
+  });
+
   app.get("/signup", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/profile");
     }
     res.render("signup", {
       title: "InSolez||Signup"
@@ -39,7 +44,6 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/profile:id", isAuthenticated, (req, res) => {
     const id = req.params.id;
-
-    res.render("user-profile", {title: "InSolez||"});
+    res.render("profile", {title: "InSolez||"});
   });
 };

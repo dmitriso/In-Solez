@@ -5,7 +5,7 @@ module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then((dbSneaker) => {
-      res.render("member-collection",{sneakers: dbSneaker});
+      
     });
   });
 
