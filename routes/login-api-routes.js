@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.post(
     "/api/login",
     passport.authenticate("local", {
-      successRedirect: "/members",
+      successRedirect: "/profile",
       failureRedirect: "/login",
       failureFlash: true
       // need to add in somewhere an if statement that looks like this || if (messages.error){messages.error} || messages is built into flash.
