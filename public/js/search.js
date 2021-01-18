@@ -21,6 +21,7 @@ $(document).ready(() => {
       });
     });
   });
+
   $("#brand").on("submit", event => {
     event.preventDefault();
     const selectedBrand = $("#option").val();
@@ -39,6 +40,7 @@ $(document).ready(() => {
       });
     });
   });
+
   $("#shoe").on("submit", event => {
     event.preventDefault();
     const shoeInput = toLowerCase(
@@ -50,7 +52,7 @@ $(document).ready(() => {
       `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${shoeInput}`
     ).then(sneakerData => {
       sneakerData.results.forEach(sneaker => {
-        const $clone = $("#sneaker")
+        const $clone = $(".sneaker")
           .clone()
           .removeAttr("id");
         $clone.find(".sneakerName").text(sneaker.name);
