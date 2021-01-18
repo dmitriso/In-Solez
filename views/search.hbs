@@ -1,27 +1,6 @@
 <body style="background-color:rgb(7, 7, 7);">
         <!-- Nav Bar Menu Items -->
-
-        <header>
-            <div class="logo">
-                <img src="/public/images/in-solez-minimal-logo.png" width="200" height="100" alt="sneakers" />
-            </div>
-            <div class="topnav">
-                <nav id="navigation">
-                    <a href="search">SEARCH</a>
-                    <a href="signup">SIGN UP</a>
-                    <a href="login">LOG IN</a>
-                    <a href="members">MEMBER PROFILE</a>
-                    <a class="active" href="#home">HOME</a>
-                </nav>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
-        </header>
+        {{> navbar}}
 
         <form style="border:1px solid #ccc padding:10px">
             <div class="container">
@@ -35,6 +14,22 @@
                             autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list"
                             aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
                             style="position: relative; vertical-align: middle;" dir="auto">
+                            
+                            <div class="container">
+                                <h1 class="member-name"></h1>
+                                <div id="sneakers">
+                                    <div id="sneaker" class="col-md-55">
+                                        <div class="thumbnail">
+                                            <div class="sneakerInfo">
+                                                <h2 class="sneakerName"></h2>
+                                                <p class="brand"></p>
+                                                <p class="shoeName"></p>
+                                                <img alt="sneaker" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.render("main", { title: "InSolez||Homepages" });
+    res.render("home", { title: "InSolez||Homepage" });
   });
 
   app.get("/login", (req, res) => {
@@ -20,10 +20,26 @@ module.exports = function(app) {
     }
     res.render("login", { title: "InSolez||Login" });
   });
-
+  app.get("/search", (req, res) => {
+    // If the user already has an account send them to the members page
+    res.render("search", {
+      title: "InSolez||Search"
+    });
+  });
+  app.get("/signup", (req, res) => {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.render("signup", {
+      title: "InSolez||Signup"
+    });
+  });
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/members.html"));
+  app.get("/profile:id", isAuthenticated, (req, res) => {
+    const id = req.params.id;
+
+    res.render("user-profile", {title: "InSolez||"});
   });
 };
