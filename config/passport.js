@@ -7,9 +7,9 @@ const db = require("../models");
 passport.use(
   new LocalStrategy(
     // Our user will sign in using a "username"
-    {
-      usernameField: "userName"
-    },
+    // {
+    //   usernameField: "userName"
+    // },
     (userName, password, done) => {
       // When a user tries to sign in this code runs
       db.User.findOne({

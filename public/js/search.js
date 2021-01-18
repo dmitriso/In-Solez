@@ -39,7 +39,7 @@ $(document).ready(() => {
       });
     });
   });
-  $("#brand").on("submit", event => {
+  $("#shoe").on("submit", event => {
     event.preventDefault();
     const shoeInput = toLowerCase(
       $("#shoe-input")
