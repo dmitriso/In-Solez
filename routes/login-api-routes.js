@@ -43,8 +43,7 @@ module.exports = function (app) {
 
   // ROUTE FOR LOGGING USER OUT
   app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
+   res.status(200).end()
   });
   // ROUTE FOR GETTING SOME DATA ABOUT OUR USER TO BE USED CLIENT SIDE
   app.get("/api/user_data", (req, res) => {
