@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $("button#logout").on("click", event => {
+  $("#logout").on("click", event => {
     event.preventDefault();
     console.log("logout");
     $.get("/logout", {}).then(() => {
