@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     tradeable: DataTypes.BOOLEAN,
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
-
+    media: DataTypes.STRING
   });
   // Sneaker.associate = models => {
   //   // Associating Author with Posts
