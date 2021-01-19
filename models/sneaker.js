@@ -5,15 +5,15 @@ module.exports = function(sequelize, DataTypes) {
     shoe: DataTypes.STRING,
     name: DataTypes.STRING,
     retailPrice: DataTypes.INTEGER,
-    releaseDate: DataTypes.INTEGER,
+    releaseDate: DataTypes.STRING,
     saleable: DataTypes.BOOLEAN,
     tradeable: DataTypes.BOOLEAN,
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
     media: DataTypes.STRING
   });
-  Sneaker.associate = models => {
-    Sneaker.hasMany(models.User, { foreignKey: "id" });
-  };
+  // Sneaker.associate = models => {
+  //   Sneaker.hasMany(models.User, { foreignKey: "id" });
+  // };
   return Sneaker;
 };
