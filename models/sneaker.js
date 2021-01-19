@@ -2,11 +2,9 @@ module.exports = function(sequelize, DataTypes) {
   const Sneaker = sequelize.define("Sneaker", {
     // The email cannot be null, and must be a proper email before creation
     brand: DataTypes.STRING,
-    name: DataTypes.STRING,
     shoe: DataTypes.STRING,
-    userPrice: DataTypes.INTEGER,
+    name: DataTypes.STRING,
     retailPrice: DataTypes.INTEGER,
-    marketValue: DataTypes.INTEGER,
     releaseDate: DataTypes.INTEGER,
     saleable: DataTypes.BOOLEAN,
     tradeable: DataTypes.BOOLEAN,
@@ -15,8 +13,6 @@ module.exports = function(sequelize, DataTypes) {
     media: DataTypes.STRING
   });
   Sneaker.associate = models => {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     Sneaker.hasMany(models.User, { foreignKey: "id" });
   };
   return Sneaker;
