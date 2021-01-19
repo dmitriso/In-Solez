@@ -9,41 +9,45 @@
         <br>
         <div class="col-md-8">
             <div class="search-box">
-                <input type="search" class="form-control ds-input" id="sneaker-search-input"
-                    placeholder="Search for a sneaker..." autocomplete="off" spellcheck="false" role="combobox"
-                    aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
-                    style="position: relative; vertical-align: middle;" dir="auto">
-
-                    <br> 
-
+                <form id="sneaker-search">
+                    <input type="search" class="form-control ds-input" id="sneaker-search-input"
+                        placeholder="Search for a sneaker..." autocomplete="off" spellcheck="false" role="combobox"
+                        aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
+                        style="position: relative; vertical-align: middle;" dir="auto">
+                        <button type="submit" class="button">Search</button>
+                </form>
+                <br>
+                <form id="brand-search">
                     <input type="search" class="form-control ds-input" id="brand-search-input"
-                    placeholder="Search for a sneaker brand..." autocomplete="off" spellcheck="false" role="combobox"
-                    aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
-                    style="position: relative; vertical-align: middle;" dir="auto">
+                        placeholder="Search for a sneaker brand..." autocomplete="off" spellcheck="false"
+                        role="combobox" aria-autocomplete="list" aria-expanded="false"
+                        aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: middle;"
+                        dir="auto">
+                        <button type="submit" class="button">Search</button>
+                </form>
+                <br>
 
-                    <br>
+                <div class="random-search-btn">
+                    <button id="random-search-btn" class="button">Click To See Random Sneakers</button>
+                </div>
 
-                    <div class="random-search-btn" id="random-search-btn">
-                        <button class="button">Click To See Random Sneakers</button>
-                    </div>
-                    
-                    <br>
-                    
-                    <div class="container">
-                        <h1 class="member-name"></h1>
-                        <div id="sneakers">
-                            <div class="sneaker" class="col-md-55">
-                                <div class="thumbnail">
-                                    <div class="sneakerInfo">
-                                        <h2 class="sneakerName"></h2>
-                                        <p class="brand"></p>
-                                        <p class="shoeName"></p>
-                                        <img alt="sneaker" />
-                                    </div>
+                <br>
+
+                <div class="container">
+                    <h1 class="member-name"></h1>
+                    <div id="sneakers">
+                        <div id="sneaker" class="col-md-55">
+                            <div class="thumbnail">
+                                <div class="sneakerInfo">
+                                    <h2 class="sneakerName"></h2>
+                                    <p class="brand"></p>
+                                    <p class="shoeName"></p>
+                                    <img alt="sneaker" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>

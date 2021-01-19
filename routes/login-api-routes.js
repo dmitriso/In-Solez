@@ -1,7 +1,6 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-const bcrypt = require("bcryptjs");
 // const router = express.Router();
 
 module.exports = function (app) {
@@ -25,18 +24,16 @@ module.exports = function (app) {
   app.post("/api/signup", async (req, res) => {
     try {
       const user = req.body;
-      const hashedPassword = await bcrypt.hash(user.password, 10);
-      db.User.create({
+      await db.User.create({
         firstName: user.firstName,
         lastName: user.lastName,
         userName: user.userName,
-        password: hashedPassword,
+        password: user.password,
         email: user.email
       });
-      console.log(data.toString())
+      console.log(user)
       res.status(307).end();
     } catch {
-      res.json(err);
       res.status(401).redirect("/signup")
     }
   });
