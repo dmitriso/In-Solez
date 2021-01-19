@@ -33,9 +33,7 @@ module.exports = function (app) {
       });
       console.log(user)
       res.status(307).end();
-    } catch {
-      res.status(401).redirect("/signup")
-    }
+    } catch {res.status(401).redirect("/signup")}
   });
 
   // ROUTE FOR LOGGING USER OUT

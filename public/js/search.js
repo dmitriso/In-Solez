@@ -34,13 +34,12 @@ function randomNumber() {
   console.log(randomNum);
   return randomNum;
 }
-// FUNCTION CREATES A LIST WITH 
+// FUNCTION CREATES A LIST WITH
 function brand(selectedBrand, pageNum) {
   $.get(
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&brand=${selectedBrand}&page=${pageNum}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
-      const sneakerStats = { sneaker };
       const $clone = $("#sneaker")
         .clone()
         .removeAttr("id");
