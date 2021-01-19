@@ -11,8 +11,9 @@ $(document).ready(() => {
     const selectedBrand = $("#brand-search-input")
       .val()
       .trim();
-    console.log(selectedBrand, randomNumber());
-    brand(selectedBrand);
+    const number = randomNumber();
+    console.log(selectedBrand, number);
+    brand(selectedBrand, number);
   });
 
   $("#sneaker-search").on("submit", event => {
@@ -20,14 +21,15 @@ $(document).ready(() => {
     const sneakerInput = $("#sneaker-search-input")
       .val()
       .trim();
-    sneaker(sneakerInput, randomNumber());
+    const number = randomNumber();
+    sneaker(sneakerInput, number);
   });
 });
 
-function randomNumber(){
-     const randomNum = Math.floor(Math.random() * 350 + 1);
-     console.log(randomNum);
-     return randomNum;
+function randomNumber() {
+  const randomNum = Math.floor(Math.random() * 350 + 1);
+  console.log(randomNum);
+  return randomNum;
 }
 
 function brand(selectedBrand, randomNum) {
