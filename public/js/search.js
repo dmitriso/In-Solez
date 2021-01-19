@@ -49,6 +49,8 @@ function brand(selectedBrand, randomNum) {
       $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
+      $clone.find(".collection-btn").attr({ id: `${sneaker.id}` });
+      $clone.find(".wishlist-btn").attr({ id: `${sneaker.id}` });
       $clone.appendTo("#sneakers");
     });
   });
@@ -66,6 +68,12 @@ function sneaker(sneakerInput, randomNum) {
       $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
+      $clone.find(".collection-btn").attr({
+        id: `${sneaker.id}`
+      });
+      $clone.find(".wishlist-btn").attr({
+        id: `${sneaker.id}`
+      });
       $clone.appendTo("#sneakers");
     });
   });
@@ -83,6 +91,12 @@ function random(randomNum) {
       $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
+      $clone.find(".collection-btn").attr({
+        id: `${sneaker.id}`
+      });
+      $clone.find(".wishlist-btn").attr({
+        id: `${sneaker.id}`
+      });
       $clone.appendTo("#sneakers");
     });
   });
