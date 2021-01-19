@@ -1,8 +1,8 @@
 const db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   //THIS GRABS A USERS COLLECTION TO DISPLAY IT
-  app.get("/api/collection", (req, res) => {
+  app.get("/api/collection", req => {
     const query = {};
     if (req.query.User.id) {
       query.User.id = req.query.User.id;
