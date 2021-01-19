@@ -9,19 +9,21 @@
         <br>
         <div class="col-md-8">
             <div class="search-box">
-                <form action="/search" method="GET">
+                <form id="sneaker-search">
                     <input type="search" class="form-control ds-input" id="sneaker-search-input"
                         placeholder="Search for a sneaker..." autocomplete="off" spellcheck="false" role="combobox"
                         aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
                         style="position: relative; vertical-align: middle;" dir="auto">
+                        <button type="submit" class="button">Search</button>
                 </form>
                 <br>
-                <form action="/search" method="GET">
+                <form id="brand-search">
                     <input type="search" class="form-control ds-input" id="brand-search-input"
                         placeholder="Search for a sneaker brand..." autocomplete="off" spellcheck="false"
                         role="combobox" aria-autocomplete="list" aria-expanded="false"
                         aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: middle;"
                         dir="auto">
+                        <button type="submit" class="button">Search</button>
                 </form>
                 <br>
 
