@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     saleable: DataTypes.BOOLEAN,
     tradeable: DataTypes.BOOLEAN,
     owned: DataTypes.BOOLEAN,
-    topFive: DataTypes.BOOLEAN
-    // media: DataTypes.STRING,
+    topFive: DataTypes.BOOLEAN,
+    media: DataTypes.STRING
   });
   Sneaker.associate = models => {
     // Associating Author with Posts

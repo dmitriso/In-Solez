@@ -44,9 +44,23 @@ module.exports = function(app) {
     });
   });
 
-  //THIS ADDS A SNEAKER TO THE COLLECTION
-  app.post("/api/sneaker", (req,res) => {
+  //THIS ADDS A SNEAKER TO THE COLLECTION TABLE
+  app.post("/api/createCollection", (req,res) => {
     db.Collection.create(req.body).then(dbCollection => {
+      res.json(dbCollection);
+    })
+  })
+  
+// THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
+  app.post("/api/createSneaker", (req,res) => {
+    db.Sneaker.create({
+      brand: req.body.brand,
+      name: req.body.name,
+      shoe: req.body.shoe,
+      retailPrice: req.body.retailPrice,
+      releaseDate: req.body.releaseDate,
+      owned: req.body.owned
+    }).then(dbCollection => {
       res.json(dbCollection);
     })
   })
@@ -72,4 +86,7 @@ module.exports = function(app) {
       res.json(dbSneaker);
     });
   });
+
+
+
 };
