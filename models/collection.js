@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
     userIdCollection: DataTypes.STRING,
-    media:{ thumbUrl:DataTypes.STRING }
+    
   });
   Collection.associate = models => {
     // Associating Author with Posts

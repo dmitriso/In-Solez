@@ -28,8 +28,7 @@ $(document).ready(() => {
       userName: userName,
       password: password
     })
-      // eslint-disable-next-line prefer-arrow-callback
-      .then(function(data) {
+      .then(data => {
         console.log(data);
         window.location.replace("/profile");
         // If there's an error, log the error

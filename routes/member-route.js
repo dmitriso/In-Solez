@@ -1,4 +1,4 @@
-const db = require("../models");
+// const db = require("../models");
 
 module.exports = function(app) {
   //THIS GRABS A USERS COLLECTION TO DISPLAY IT
