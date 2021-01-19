@@ -21,7 +21,7 @@ module.exports = function(app) {
 
   // GET ROUTE FOR RETURNING POSTS OF A SPECFIC BRAND
   app.get("/api/posts/category/:brand", (req, res) => {
-    db.Post.findAll({
+    db.Sneaker.findAll({
       where: {
         brand: req.params.brand
       }
@@ -43,6 +43,13 @@ module.exports = function(app) {
       res.json(dbCollection);
     });
   });
+
+  //THIS ADDS A SNEAKER TO THE COLLECTION
+  app.post("/api/sneaker", (req,res) => {
+    db.Collection.create(req.body).then(dbCollection => {
+      res.json(dbCollection);
+    })
+  })
 
   //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
   app.delete("/api/sneakers", (req, res) => {
