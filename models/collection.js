@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     sneaker: DataTypes.INTEGER,
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
-    userIdCollection: DataTypes.STRING
+    userIdCollection: DataTypes.INTEGER
   });
   Collection.associate = models => {
     // Associating Author with Posts
