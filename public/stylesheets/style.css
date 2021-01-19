@@ -220,3 +220,37 @@ hr {
   background-color:white;
   color: #5090f0;
 }
+
+.sneaker-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.sneaker-button:hover {
+  background-color:white;
+  color: #5090f0;
+}
+
+.brand-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #5090f0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.brand-button:hover {
+  background-color:white;
+  color: #5090f0;
+}
