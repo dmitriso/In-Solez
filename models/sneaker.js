@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     // The email cannot be null, and must be a proper email before creation
     brand: DataTypes.STRING,
     name: DataTypes.STRING,
+    shoe: DataTypes.STRING,
     userPrice: DataTypes.INTEGER,
     retailPrice: DataTypes.INTEGER,
     marketValue: DataTypes.INTEGER,
@@ -11,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     tradeable: DataTypes.BOOLEAN,
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN
+    // media: DataTypes.STRING,
   });
   Sneaker.associate = models => {
     // Associating Author with Posts

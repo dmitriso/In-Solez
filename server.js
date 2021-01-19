@@ -8,14 +8,15 @@ const session = require("express-session");
 const flash = require("express-flash");
 const exphbs = require("express-handlebars");
 const path = require("path");
+
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 // const mysql = require("mysql");
 // const MySQLStore = require("express-mysql-session")(session);
+
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
-
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
@@ -43,6 +44,7 @@ app.use(flash());
 // };
 // const connection = mysql.createConnection(options)
 // const sessionStore = new MySQLStore(options, connection);
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -78,7 +80,7 @@ require("./routes/login-api-routes.js")(app);
 require("./routes/sneaker-api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
