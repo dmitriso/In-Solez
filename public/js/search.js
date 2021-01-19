@@ -4,8 +4,8 @@ $(document).ready(() => {
   // eslint-disable-next-line prefer-arrow-callback
   $("#random-search-btn").on("click", function(event) {
     event.preventDefault();
-    const number = randomNumber();
-    random(number);
+    const pageNum = randomNumber();
+    randomSneakers(pageNum);
   });
 
   // eslint-disable-next-line prefer-arrow-callback
@@ -14,9 +14,8 @@ $(document).ready(() => {
     const selectedBrand = $("#brand-search-input")
       .val()
       .trim();
-    const number = randomNumber();
-    console.log(selectedBrand, number);
-    brand(selectedBrand, number);
+    const pageNum = randomNumber();
+    brand(selectedBrand, pageNum);
   });
 
   // eslint-disable-next-line prefer-arrow-callback
@@ -25,20 +24,20 @@ $(document).ready(() => {
     const sneakerInput = $("#sneaker-search-input")
       .val()
       .trim();
-    const number = randomNumber();
-    sneaker(sneakerInput, number);
+    const pageNum = randomNumber();
+    sneaker(sneakerInput, pageNum);
   });
 });
-
+// CREATES A RANDOM NUMBER
 function randomNumber() {
   const randomNum = Math.floor(Math.random() * 350 + 1);
   console.log(randomNum);
   return randomNum;
 }
-
-function brand(selectedBrand, randomNum) {
+// FUNCTION CREATES A LIST WITH 
+function brand(selectedBrand, pageNum) {
   $.get(
-    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&brand=${selectedBrand}&page=${randomNum}`
+    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&brand=${selectedBrand}&page=${pageNum}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
       const sneakerStats = { sneaker };
@@ -56,9 +55,9 @@ function brand(selectedBrand, randomNum) {
   });
 }
 
-function sneaker(sneakerInput, randomNum) {
+function sneaker(sneakerInput, pageNum) {
   $.get(
-    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${sneakerInput}&page=${randomNum}`
+    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${sneakerInput}&page=${pageNum}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
       const $clone = $(".sneaker")
@@ -79,9 +78,9 @@ function sneaker(sneakerInput, randomNum) {
   });
 }
 
-function random(randomNum) {
+function randomSneakers(pageNum) {
   $.get(
-    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&page=${randomNum}`
+    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&page=${pageNum}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
