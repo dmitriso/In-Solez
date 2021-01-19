@@ -56,10 +56,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 // sessionStore.close();
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated();
-  next();
-});
 
 // view engine setup
 app.set("view engine", "hbs");
