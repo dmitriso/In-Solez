@@ -20,6 +20,7 @@ module.exports = function (app) {
       });
     }
   );
+
   // THIS ROUTE CREATES A NEW USER ROW
   app.post("/api/signup", async (req, res) => {
     try {
@@ -46,6 +47,7 @@ module.exports = function (app) {
       res.redirect("/");
     });
   });
+  
   // ROUTE FOR GETTING SOME DATA ABOUT OUR USER TO BE USED CLIENT SIDE
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {

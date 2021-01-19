@@ -1,6 +1,6 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then(dbSneaker => {
@@ -45,14 +45,21 @@ module.exports = function(app) {
   });
 
   //THIS ADDS A SNEAKER TO THE COLLECTION TABLE
-  app.post("/api/createCollection", (req,res) => {
-    db.Collection.create(req.body).then(dbCollection => {
+  app.post("/api/createCollection", (req, res) => {
+    db.Collection.create({
+      brand: req.body.brand,
+      name: req.body.name,
+      shoe: req.body.shoe,
+      retailPrice: req.body.retailPrice,
+      releaseDate: req.body.releaseDate,
+      owned: req.body.owned
+    }).then(dbCollection => {
       res.json(dbCollection);
-    })
-  })
-  
-// THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
-  app.post("/api/createSneaker", (req,res) => {
+    });
+  });
+
+  // THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
+  app.post("/api/createSneaker", (req, res) => {
     db.Sneaker.create({
       brand: req.body.brand,
       name: req.body.name,
@@ -62,8 +69,8 @@ module.exports = function(app) {
       owned: req.body.owned
     }).then(dbCollection => {
       res.json(dbCollection);
-    })
-  })
+    });
+  });
 
   //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
   app.delete("/api/sneakers", (req, res) => {
@@ -86,7 +93,4 @@ module.exports = function(app) {
       res.json(dbSneaker);
     });
   });
-
-
-
 };
