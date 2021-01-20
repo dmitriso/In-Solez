@@ -1,6 +1,6 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then(dbSneaker => {
@@ -9,14 +9,11 @@ module.exports = function(app) {
   });
 
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
-  app.post("/api/wishlist", (req, res) => {
-    const query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
+  app.get("/api/wishlist", (req, res) => {
+    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
-        query,
+        UserId: req.user.id,
         owned: false
       }
     }).then(dbWishlist => {
@@ -27,13 +24,10 @@ module.exports = function(app) {
 
   //THIS RETIREVES A USERS COLLECTION TO DISPLAY IT
   app.get("/api/collection", (req, res) => {
-    const query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
+    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
-        query,
+        UserId: req.user.id,
         owned: true
       }
     }).then(dbCollection => {
@@ -42,7 +36,7 @@ module.exports = function(app) {
   });
 
   //ROUTE FOR RETREIVING TOP 5 SNEAKERS IN A USERS COLLECTION
-  app.get("/api/topFive", (req,res) => {
+  app.get("/api/topFive", (req, res) => {
     const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
