@@ -261,12 +261,12 @@ hr {
   color: #5090f0;
 }
 
-#sneaker-search-input {
-  display: inline-block;
-  width: 35rem;
+.sneaker-search-input {
+  display: inline-block !important;
+  width: 45rem !important;
 }
 
-#brand-search-input {
-  display: inline-block;
-  width: 35rem;
+.brand-search-input{
+  display: inline-block !important;
+  width: 45rem !important;
 }

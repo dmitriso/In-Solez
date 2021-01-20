@@ -9,7 +9,7 @@
         <br>
         <div class="col-md-8">
             <div class="search-box">
-                <form id="sneaker-search">
+                {{!-- <form id="sneaker-search">
                     <input type="search" class="form-control ds-input" id="sneaker-search-input"
                         placeholder="Search for a sneaker..." autocomplete="off" spellcheck="false" role="combobox"
                         aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0"
@@ -18,21 +18,31 @@
                 </form>
                 <br>
                 <br>
-                <form id="brand-search">
-                    <input type="search" class="form-control ds-input" id="brand-search-input"
+                <form class="brand-search">
+                    <input type="text" class="form-control ds-input" id="brand-search-input"
                         placeholder="Search for a sneaker brand..." autocomplete="off" spellcheck="false"
                         role="combobox" aria-autocomplete="list" aria-expanded="false"
                         aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: middle;"
                         dir="auto">
                     <button type="submit" class="brand-button">Search</button>
+                </form> --}}
+
+                <form id="sneaker-search">
+                    <input type="text" class="sneaker-search-input" placeholder="Search for a sneaker..." name="search">
+                    <button type="submit" class="sneaker-button">Search</button>
                 </form>
+                <br>
+                <br>
+                <form id="brand-search">
+                    <input type="text" class="brand-search-input" placeholder="Search for a sneaker brand..." name="search">
+                    <button type="submit" class="brand-button">Search</button>
+                </form>
+                <br>
                 <br>
 
                 <div class="random-search-btn">
                     <button id="random-search-btn" class="button">Click To See Random Sneakers</button>
                 </div>
-
-                <br>
                 <br>
 
                 <div class="container">
