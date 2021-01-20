@@ -32,7 +32,7 @@ module.exports = function(app) {
 
   //THIS GRABS A USERS COLLECTION TO DISPLAY IT
   app.get("/api/collection", (req, res) => {
-    const query = {};
+    
     if (req.query.User.id) {
       query.userIdCollection = req.query.User.id;
     }
@@ -43,16 +43,16 @@ module.exports = function(app) {
       res.json(dbCollection);
     });
   });
+  //GRAB BY USERID 
+  // GRAB BY OWNED
 
   //THIS ADDS A SNEAKER TO THE COLLECTION TABLE
   app.post("/api/createCollection", (req, res) => {
     db.Collection.create({
-      brand: req.body.brand,
-      name: req.body.name,
-      shoe: req.body.shoe,
-      retailPrice: req.body.retailPrice,
-      releaseDate: req.body.releaseDate,
-      owned: req.body.owned
+      sneaker: req.body.sneaker,
+      owned: req.body.owned,
+      topFive: req.body.topFive,
+      userIdCollection: req.body.userIdCollection
     }).then(dbCollection => {
       res.json(dbCollection);
     });
@@ -93,4 +93,7 @@ module.exports = function(app) {
       res.json(dbSneaker);
     });
   });
+
+  // 
+
 };
