@@ -8,9 +8,17 @@ module.exports = function(app) {
     // if (req.user) {
     //   res.redirect("/profile");
     // }
-    res.render("home", { title: "InSolez||Homepages" });
+    res.render("welcome", { title: "InSolez||Welcome" });
   });
-
+  app.get("/home", (req, res) => {
+    // If the user already has an account send them to the members page
+    // if (req.user) {
+    //   res.redirect("/profile");
+    // }
+    res.render("home", {
+      title: "InSolez||Homepage"
+    });
+  });
   app.get("/login", isNotAuthenticated, (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
