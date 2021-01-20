@@ -4,16 +4,20 @@ $(document).ready(() => {
     event.preventDefault();
     console.log(this.id);
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
-      sneakerData => {
-        const data = sneakerData.results[0];
-        createSneaker(
-          data.brand,
-          data.name,
-          data.shoe,
-          data.retailPrice,
-          data.releaseDate,
-          true
-        );
+      sneakersData => {
+        const sneakerData = sneakersData.results[0];
+        $.get("/api/user_data").then(data => {
+          console.log(data);
+          createSneaker(
+            sneakerData.brand,
+            sneakerData.name,
+            sneakerData.shoe,
+            sneakerData.retailPrice,
+            sneakerData.releaseDate,
+            true,
+            data.id
+          );
+        });
       }
     );
   });
@@ -22,28 +26,41 @@ $(document).ready(() => {
     event.preventDefault();
     console.log(this.id);
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
-      sneakerData => {
-        const data = sneakerData.results[0];
-        createSneaker(
-          data.brand,
-          data.name,
-          data.shoe,
-          data.retailPrice,
-          data.releaseDate,
-          false
-        );
+      sneakersData => {
+        const sneakerData = sneakersData.results[0];
+        $.get("/api/user_data").then(data => {
+          console.log(data);
+          createSneaker(
+            sneakerData.brand,
+            sneakerData.name,
+            sneakerData.shoe,
+            sneakerData.retailPrice,
+            sneakerData.releaseDate,
+            true,
+            data.id
+          );
+        });
       }
     );
   });
   // THIS FUNCTION WILL CREATE A SNEAKER AND REROUTE TO PROFILE PAGE.
-  function createSneaker(brand, name, shoe, retailPrice, releaseDate, owned) {
+  function createSneaker(
+    brand,
+    name,
+    shoe,
+    retailPrice,
+    releaseDate,
+    owned,
+    userId
+  ) {
     $.post("/api/createSneaker", {
       brand: brand,
       name: name,
       shoe: shoe,
       retailPrice: retailPrice,
       releaseDate: releaseDate,
-      owned: owned
+      owned: owned,
+      userId: userId
     })
       .then(() => {
         window.location.replace("/profile");
