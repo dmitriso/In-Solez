@@ -63,7 +63,8 @@ $(document).ready(() => {
       releaseDate: releaseDate,
       owned: owned,
       media: media,
-      userId: userId
+      sneakeruserId: userId,
+      UserId: userId
     })
       .then(() => {
         window.location.replace("/profile");

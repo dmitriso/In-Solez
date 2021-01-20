@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   const Sneaker = sequelize.define("Sneaker", {
-    // The email cannot be null, and must be a proper email before creation
+    // SETTING UP ALL TABLE COLUMNS
     brand: DataTypes.STRING,
     shoe: DataTypes.STRING,
     name: DataTypes.STRING,
@@ -11,10 +11,11 @@ module.exports = function(sequelize, DataTypes) {
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
     media: DataTypes.STRING,
-    sneakerUserID: DataTypes.INTEGER
+    sneakeruserID: DataTypes.INTEGER
   });
-  // Sneaker.associate = models => {
-  //   Sneaker.hasone(models.User, { foreignKey: "id" });
-  // };
+  // ASSOCIATING SNEAKERS TO TABLE AND ASSIGNING A USER TO THE SNEAKER
+  Sneaker.associate = models => {
+    Sneaker.belongsTo(models.User, { foreignKey: { allowNull: false } });
+  };
   return Sneaker;
 };

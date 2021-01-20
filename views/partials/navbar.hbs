@@ -4,12 +4,14 @@
     </div>
     <div class="topnav">
         <nav id="navigation">
+            {{#if data.userName}}
+            {{/if}}
+            <a href="logout">LOGOUT</a>
             <a href="search">SEARCH</a>
+            <a href="profile">PROFILE</a>
             <a href="signup">SIGN-UP</a>
             <a href="login">LOG-IN</a>
-            <a href="profile">PROFILE</a>
             <a href="/">HOME</a>
-            <a href="logout">LOGOUT</a>
         </nav>
         <br>
         <br>
@@ -21,6 +23,4 @@
     </div>
 </header>
 
-<body style="background-color:rgb(7, 7, 7);">
-
-</body>
+<body style="background-color:rgb(7, 7, 7)">
