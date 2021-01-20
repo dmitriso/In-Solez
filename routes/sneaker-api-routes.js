@@ -10,6 +10,7 @@ module.exports = function(app) {
 
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
   app.get("/api/wishlist", (req, res) => {
+    console.log(req.user.id)
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
@@ -22,6 +23,7 @@ module.exports = function(app) {
 
   //THIS RETIREVES A USERS COLLECTION TO DISPLAY IT
   app.get("/api/collection", (req, res) => {
+    console.log(req.user.id)
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,

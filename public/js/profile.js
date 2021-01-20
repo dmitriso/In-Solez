@@ -5,18 +5,7 @@ $(document).ready(() => {
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.userName);
     $.get("/api/collection", function (req) {
-      console.log(req)
-      for (var i=0; i<req.length; i++){
-        var sneakerName = $("<h2>").text(req.name)
-      }
-      req.forEach((sneaker, index) => {
-        console.log(sneaker, index);
-        // if (index === 0) {
-        //   $(".item")
-        //     .clone()
-        //     .addClass("active");
-        // }
-        // $(".item").clone;
+      req.forEach(sneaker => {
         const $clone = $("#collectionSneaker")
           .clone()
           .removeAttr("id");
@@ -28,8 +17,8 @@ $(document).ready(() => {
         if (!sneaker.media) {
           $clone.find("img").prop("src", "./images/outline-shoes.jpg");
         }
-        $clone.find("img").prop("src", sneaker.media);
-        $clone.appendTo("#collectionSneakers");
+        $clone1.find("img").prop("src", sneaker.media);
+        $clone1.appendTo("#collectionSneakers");
       });
       $.get("/api/wishlist", function (req) {
         req.forEach(sneaker => {
@@ -39,8 +28,8 @@ $(document).ready(() => {
           $clone1.find(".wishlistSneakerName").text(sneaker.name);
           $clone1.find(".wishlistBrand").text(sneaker.brand);
           $clone1.find(".wishlistShoeName").text(sneaker.shoe);
-          $clone1.find(".collectionRetailPrice").text(sneaker.retailPrice);
-          $clone1.find(".collectionReleaseDate").text(sneaker.releaseDate);
+          $clone1.find(".wishlistRetailPrice").text(sneaker.retailPrice);
+          $clone1.find(".wishlistReleaseDate").text(sneaker.releaseDate);
           if (!sneaker.media) {
             $clone1.find("img").prop("src", "./images/outline-shoes.jpg");
           }
