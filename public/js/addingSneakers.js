@@ -6,7 +6,7 @@ $(document).ready(() => {
       sneakersData => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
-          console.log(data, "adding sneaker");
+          console.log(data, "adding collection");
           createSneaker(
             sneakerData.brand,
             sneakerData.name,
@@ -29,7 +29,7 @@ $(document).ready(() => {
       sneakersData => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
-          console.log(data, "adding sneaker");
+          console.log(data, "adding wishlist");
           createSneaker(
             sneakerData.brand,
             sneakerData.name,

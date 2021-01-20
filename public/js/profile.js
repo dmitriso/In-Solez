@@ -1,14 +1,12 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable prefer-arrow-callback */
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $.get("/api/user_data").then(data => {
-    console.log(data);
+  $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.userName);
-    $.get("/api/collection", (req) => {
+    $.get("/api/collection", function(req) {
       req.forEach(sneaker => {
-        console.log(req, "dataapi");
+        console.log(req, "datacollect");
         const $clone = $("#collectionSneaker")
           .clone()
           .removeAttr("id");
@@ -21,20 +19,19 @@ $(document).ready(() => {
         $clone.find("img").prop("src", sneaker.media);
         $clone.appendTo("#collectionSneakers");
       });
-    });
-    $.get("/api/wishlist", (req) => {
-      req.forEach(sneaker => {
-        console.log(req, "dataapi");
-        const $clone = $("#wishlistSneaker")
-          .clone()
-          .removeAttr("id");
-        $clone.find(".wishlistSneakerName").text(sneaker.name);
-        $clone.find(".wishlistBrand").text(sneaker.brand);
-        $clone.find(".wishlistShoeName").text(sneaker.shoe);
-        $clone.find("img").prop("src", sneaker.media);
-        $clone.appendTo("#wishlistSneakers");
+      $.get("/api/wishlist", function(req) {
+        req.forEach(sneaker => {
+          console.log(req, "datawish");
+          const $clone1 = $("#wishlistSneaker")
+            .clone()
+            .removeAttr("id");
+          $clone1.find(".wishlistSneakerName").text(sneaker.name);
+          $clone1.find(".wishlistBrand").text(sneaker.brand);
+          $clone1.find(".wishlistShoeName").text(sneaker.shoe);
+          $clone1.find("img").prop("src", sneaker.media);
+          $clone1.appendTo("#wishlistSneakers");
+        });
       });
     });
   });
-
 });
