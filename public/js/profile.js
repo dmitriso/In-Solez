@@ -6,15 +6,18 @@ $(document).ready(() => {
     $(".member-name").text(data.userName);
     $.get("/api/sneakers", req => {
       req.forEach(sneaker => {
-        console.log(req, 'dataapi')
+        console.log(req, "dataapi");
         const $clone = $("#collectionSneaker")
           .clone()
           .removeAttr("id");
         $clone.find(".collectionSneakerName").text(sneaker.name);
         $clone.find(".collectionBrand").text(sneaker.brand);
         $clone.find(".collectionShoeName").text(sneaker.shoe);
+        if (!sneaker.media) {
+          $clone.find("img").prop("src", "/images/jordans.png");
+        }
         $clone.find("img").prop("src", sneaker.media);
-        $clone.appendTo("#sneakers");
+        $clone.appendTo("#collectionSneakers");
       });
     });
   });
@@ -23,15 +26,15 @@ $(document).ready(() => {
     $(".member-name").text(data.userName);
     $.get("/api/sneakers", req => {
       req.forEach(sneaker => {
-        console.log(req, 'dataapi')
-        const $clone = $("#collectionSneaker")
+        console.log(req, "dataapi");
+        const $clone = $("#wishlistSneaker")
           .clone()
           .removeAttr("id");
-        $clone.find(".collectionSneakerName").text(sneaker.name);
-        $clone.find(".collectionBrand").text(sneaker.brand);
-        $clone.find(".collectionShoeName").text(sneaker.shoe);
+        $clone.find(".wishlistSneakerName").text(sneaker.name);
+        $clone.find(".wishlistBrand").text(sneaker.brand);
+        $clone.find(".wishlistShoeName").text(sneaker.shoe);
         $clone.find("img").prop("src", sneaker.media);
-        $clone.appendTo("#sneakers");
+        $clone.appendTo("#wishlistSneakers");
       });
     });
   });

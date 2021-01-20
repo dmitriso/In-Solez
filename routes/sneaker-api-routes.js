@@ -67,7 +67,8 @@ module.exports = function(app) {
       releaseDate: req.body.releaseDate,
       media: req.body.media,
       owned: req.body.owned,
-      sneakerUserId: req.body.sneakerUserId
+      sneakeruserId: req.body.sneakeruserId,
+      UserId: req.body.UserId
     }).then(dbCollection => {
       res.json(dbCollection);
     });
