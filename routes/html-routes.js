@@ -1,17 +1,17 @@
-// Requiring our custom middleware for checking if a user is logged in
+// REQUIRING OUR CUSTOM MIDDLEWARE FOR CHEKCING IF A USER IS LOGGED IN
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
     //   res.redirect("/profile");
     // }
     res.render("welcome", { title: "InSolez||Welcome" });
   });
   app.get("/home", (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
     //   res.redirect("/profile");
     // }
@@ -20,7 +20,7 @@ module.exports = function(app) {
     });
   });
   app.get("/login", isNotAuthenticated, (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     if (req.user) {
       res.redirect("/profile");
     }
@@ -28,14 +28,14 @@ module.exports = function(app) {
   });
 
   app.get("/search", (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     res.render("search", {
       title: "InSolez||Search"
     });
   });
 
   app.get("/signup", isNotAuthenticated, (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     if (req.user) {
       res.redirect("/profile");
     }
@@ -44,8 +44,8 @@ module.exports = function(app) {
     });
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  // HERE WE'VE ADDED OUR isAuthenticated MIDDLEWARE TO THIS ROUTE.
+  // IF A USER WHO IS NOT LOGGED IN TRIES TO ACCESS THIS ROUTE THEY WILL BE REDIRECTED TO THE SIGNUP PAGE.
   app.get("/profile", isAuthenticated, (req, res) => {
     res.render("profile", { title: "InSolez||Profile" });
   });
