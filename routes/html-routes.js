@@ -4,14 +4,14 @@ const isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
     //   res.redirect("/profile");
     // }
     res.render("welcome", { title: "InSolez||Welcome" });
   });
   app.get("/home", (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
     //   res.redirect("/profile");
     // }
@@ -20,7 +20,7 @@ module.exports = function(app) {
     });
   });
   app.get("/login", isNotAuthenticated, (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     if (req.user) {
       res.redirect("/profile");
     }
@@ -28,14 +28,14 @@ module.exports = function(app) {
   });
 
   app.get("/search", (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     res.render("search", {
       title: "InSolez||Search"
     });
   });
 
   app.get("/signup", isNotAuthenticated, (req, res) => {
-    // If the user already has an account send them to the members page
+    // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     if (req.user) {
       res.redirect("/profile");
     }
