@@ -59,13 +59,15 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = models => {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    User.hasMany(models.Sneaker, { foreignKey: "id" });
+    User.hasMany(models.Sneaker, {
+      onDelete: "cascade"
+    });
   };
-  User.associate = models => {
-    User.hasOne(models.Collection, { foreignKey: "id" });
-  };
-  User.associate = models => {
-    User.hasOne(models.Wishlist, { foreignKey: "id" });
-  };
+  // User.associate = models => {
+  //   User.hasOne(models.Collection, { foreignKey: "id" });
+  // };
+  // User.associate = models => {
+  //   User.hasOne(models.Wishlist, { foreignKey: "id" });
+  // };
   return User;
 };
