@@ -23,7 +23,6 @@ module.exports = function(app) {
 
   //THIS RETIREVES A USERS COLLECTION TO DISPLAY IT
   app.get("/api/collection", (req, res) => {
-    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,

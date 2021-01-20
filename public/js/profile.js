@@ -6,7 +6,6 @@ $(document).ready(() => {
     $(".member-name").text(data.userName);
     $.get("/api/collection", function(req) {
       req.forEach(sneaker => {
-        console.log(req, "datacollect");
         const $clone = $("#collectionSneaker")
           .clone()
           .removeAttr("id");
@@ -21,7 +20,6 @@ $(document).ready(() => {
       });
       $.get("/api/wishlist", function(req) {
         req.forEach(sneaker => {
-          console.log(req, "datawish");
           const $clone1 = $("#wishlistSneaker")
             .clone()
             .removeAttr("id");
