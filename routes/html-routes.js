@@ -3,6 +3,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 
 module.exports = function(app) {
+  //THIS ROUTES THE USER TO THE WELCOME
   app.get("/", (req, res) => {
     // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
@@ -10,6 +11,7 @@ module.exports = function(app) {
     // }
     res.render("welcome", { title: "InSolez||Welcome" });
   });
+
   app.get("/home", (req, res) => {
     // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
@@ -19,6 +21,7 @@ module.exports = function(app) {
       title: "InSolez||Homepage"
     });
   });
+
   app.get("/login", isNotAuthenticated, (req, res) => {
     // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     if (req.user) {
