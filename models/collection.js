@@ -4,22 +4,22 @@ module.exports = function(sequelize, DataTypes) {
     sneaker: DataTypes.INTEGER,
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
-    userIdCollection: DataTypes.STRING
+    userIdCollection: DataTypes.INTEGER
   });
-  Collection.associate = models => {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Collection.hasMany(models.Sneaker, { foreignKey: "id" });
-  };
-  Collection.associate = models => {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Collection.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false,
-        value: "id"
-      }
-    });
-  };
+  // Collection.associate = models => {
+  //   // Associating Author with Posts
+  //   // When an Author is deleted, also delete any associated Posts
+  //   Collection.hasMany(models.Sneaker, { foreignKey: "id" });
+  // };
+  // Collection.associate = models => {
+  //   // Associating Author with Posts
+  //   // When an Author is deleted, also delete any associated Posts
+  //   Collection.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false,
+  //       value: "id"
+  //     }
+  //   });
+  // };
   return Collection;
 };
