@@ -2,14 +2,14 @@ $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   // eslint-disable-next-line prefer-arrow-callback
-  $("#random-search-btn").on("click", function(event) {
+  $("#random-search-btn").on("click", function (event) {
     event.preventDefault();
     const pageNum = randomNumber();
     randomSneakers(pageNum);
   });
 
   // eslint-disable-next-line prefer-arrow-callback
-  $("#brand-search").on("submit", function(event) {
+  $("#brand-search").on("submit", function (event) {
     event.preventDefault();
     const selectedBrand = $("#brand-search-input")
       .val()
@@ -19,7 +19,7 @@ $(document).ready(() => {
   });
 
   // eslint-disable-next-line prefer-arrow-callback
-  $("#sneaker-search").on("submit", function(event) {
+  $("#sneaker-search").on("submit", function (event) {
     event.preventDefault();
     const sneakerInput = $("#sneaker-search-input")
       .val()
@@ -31,7 +31,6 @@ $(document).ready(() => {
 // CREATES A RANDOM NUMBER
 function randomNumber() {
   const randomNum = Math.floor(Math.random() * 350 + 1);
-  console.log(randomNum);
   return randomNum;
 }
 // FUNCTION CREATES A LIST WITH
@@ -47,8 +46,12 @@ function brand(selectedBrand, pageNum) {
       $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
-      $clone.find(".collection-btn").attr({ id: `${sneaker.id}` });
-      $clone.find(".wishlist-btn").attr({ id: `${sneaker.id}` });
+      $clone.find(".collection-btn").attr({
+        id: `${sneaker.id}`
+      });
+      $clone.find(".wishlist-btn").attr({
+        id: `${sneaker.id}`
+      });
       $clone.appendTo("#sneakers");
     });
   });
