@@ -10,10 +10,11 @@ module.exports = function(sequelize, DataTypes) {
     tradeable: DataTypes.BOOLEAN,
     owned: DataTypes.BOOLEAN,
     topFive: DataTypes.BOOLEAN,
-    media: DataTypes.STRING
+    media: DataTypes.STRING,
+    sneakerUserID: DataTypes.INTEGER
   });
   // Sneaker.associate = models => {
-  //   Sneaker.hasMany(models.User, { foreignKey: "id" });
+  //   Sneaker.hasone(models.User, { foreignKey: "id" });
   // };
   return Sneaker;
 };

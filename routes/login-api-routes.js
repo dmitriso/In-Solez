@@ -3,7 +3,7 @@ const db = require("../models");
 const passport = require("../config/passport");
 // const router = express.Router();
 
-module.exports = function (app) {
+module.exports = function(app) {
   // THIS AUTHENTICATES THE USERS LOGIN NAME AND PASSWORD
   app.post(
     "/api/login",
@@ -32,10 +32,10 @@ module.exports = function (app) {
         password: user.password,
         email: user.email
       });
-      console.log(user)
+      console.log(user);
       res.status(307).end();
-    } catch {
-      res.status(401).redirect("/signup")
+    } catch (err) {
+      res.status(401).redirect("/signup");
     }
   });
 
@@ -47,7 +47,7 @@ module.exports = function (app) {
       res.redirect("/");
     });
   });
-  
+
   // ROUTE FOR GETTING SOME DATA ABOUT OUR USER TO BE USED CLIENT SIDE
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
@@ -58,9 +58,9 @@ module.exports = function (app) {
         id: req.user.id
       });
     }
-  })
+  });
 
-  // checks to see if the user is logged 
+  // checks to see if the user is logged
   // checkAuthenticated = ((req, res, next) => {
   //   if (req.isAuthenticated()) {
   //     next();
