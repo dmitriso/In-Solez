@@ -36,7 +36,7 @@ $(document).ready(() => {
             sneakerData.shoe,
             sneakerData.retailPrice,
             sneakerData.releaseDate,
-            true,
+            false,
             sneakerData.media.thumbUrl,
             data.id
           );
@@ -65,12 +65,7 @@ $(document).ready(() => {
       media: media,
       sneakeruserId: userId,
       UserId: userId
-    })
-      .then(() => {
-        window.location.replace("/profile");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
+    }).catch(handleLoginErr);
   }
   // CREATED TO HANDLE THE ERROR.
   function handleLoginErr(err) {

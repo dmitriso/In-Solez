@@ -1,10 +1,12 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable prefer-arrow-callback */
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
     console.log(data);
     $(".member-name").text(data.userName);
-    $.get("/api/collection", req => {
+    $.get("/api/collection", (req) => {
       req.forEach(sneaker => {
         console.log(req, "dataapi");
         const $clone = $("#collectionSneaker")
@@ -20,11 +22,7 @@ $(document).ready(() => {
         $clone.appendTo("#collectionSneakers");
       });
     });
-  });
-  $.get("/api/wishlist").then(data => {
-    console.log(data);
-    $(".member-name").text(data.userName);
-    $.get("/api/sneakers", req => {
+    $.get("/api/wishlist", (req) => {
       req.forEach(sneaker => {
         console.log(req, "dataapi");
         const $clone = $("#wishlistSneaker")
@@ -38,4 +36,5 @@ $(document).ready(() => {
       });
     });
   });
+
 });

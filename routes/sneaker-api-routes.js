@@ -9,14 +9,13 @@ module.exports = function(app) {
   });
 
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
-  app.post("/api/wishlist", (req, res) => {
+  app.get("/api/wishlist", (req, res) => {
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
         owned: false
       }
     }).then(dbWishlist => {
-      console.log(dbWishlist);
       res.json(dbWishlist);
     });
   });
