@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     lastName: { type: DataTypes.STRING, allowNull: true },
+    // THE USERNAME CAN'T BE NULL, NEEDS TO BE UNIQUE, AND NEEDS TO BE BETWEEN 6 TO 20 CHARS.
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    // The password cannot be null
+    // THE PASSWORD CAN'T BE NULL AND NEEDS TO BE BETWEEN 6 TO 20 CHARS.
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -55,19 +56,11 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
-
+  // ASSOSIATES USER TABLE TO SNEAKER TABLE
   User.associate = models => {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     User.hasMany(models.Sneaker, {
       onDelete: "cascade"
     });
   };
-  // User.associate = models => {
-  //   User.hasOne(models.Collection, { foreignKey: "id" });
-  // };
-  // User.associate = models => {
-  //   User.hasOne(models.Wishlist, { foreignKey: "id" });
-  // };
   return User;
 };
