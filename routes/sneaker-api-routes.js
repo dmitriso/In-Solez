@@ -1,6 +1,6 @@
 const db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then(dbSneaker => {
@@ -10,14 +10,12 @@ module.exports = function (app) {
 
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
   app.get("/api/wishlist", (req, res) => {
-    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
         owned: false
       }
     }).then(dbWishlist => {
-      console.log(dbWishlist);
       res.json(dbWishlist);
     });
   });
