@@ -4,7 +4,7 @@ $(document).ready(() => {
   $.get("/api/user_data").then(data => {
     console.log(data);
     $(".member-name").text(data.userName);
-    $.get("/api/sneakers", req => {
+    $.get("/api/collection", req => {
       req.forEach(sneaker => {
         console.log(req, "dataapi");
         const $clone = $("#collectionSneaker")
@@ -21,7 +21,7 @@ $(document).ready(() => {
       });
     });
   });
-  $.get("/api/user_data").then(data => {
+  $.get("/api/wishlist").then(data => {
     console.log(data);
     $(".member-name").text(data.userName);
     $.get("/api/sneakers", req => {
