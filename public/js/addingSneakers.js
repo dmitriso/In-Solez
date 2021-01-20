@@ -2,12 +2,11 @@ $(document).ready(() => {
   // THIS BUTTON CLICK WILL CREATE A SHOE WITH AND PASS IN THE VALUE OF TRUE FOR OWNED
   $(document).on("click", ".collection-btn", function(event) {
     event.preventDefault();
-    console.log(this.id);
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
       sneakersData => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
-          console.log(data);
+          console.log(data, "adding sneaker");
           createSneaker(
             sneakerData.brand,
             sneakerData.name,
@@ -15,6 +14,7 @@ $(document).ready(() => {
             sneakerData.retailPrice,
             sneakerData.releaseDate,
             true,
+            sneakerData.media.thumbUrl,
             data.id
           );
         });
@@ -29,7 +29,7 @@ $(document).ready(() => {
       sneakersData => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
-          console.log(data);
+          console.log(data, "adding sneaker");
           createSneaker(
             sneakerData.brand,
             sneakerData.name,
@@ -37,6 +37,7 @@ $(document).ready(() => {
             sneakerData.retailPrice,
             sneakerData.releaseDate,
             true,
+            sneakerData.media.thumbUrl,
             data.id
           );
         });
@@ -51,6 +52,7 @@ $(document).ready(() => {
     retailPrice,
     releaseDate,
     owned,
+    media,
     userId
   ) {
     $.post("/api/createSneaker", {
@@ -60,6 +62,7 @@ $(document).ready(() => {
       retailPrice: retailPrice,
       releaseDate: releaseDate,
       owned: owned,
+      media: media,
       userId: userId
     })
       .then(() => {
