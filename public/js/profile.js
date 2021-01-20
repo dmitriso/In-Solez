@@ -2,34 +2,63 @@
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $.get("/api/user_data").then(function(data) {
+  $.get("/api/user_data").then(data => {
+    console.log(data);
     $(".member-name").text(data.userName);
-    $.get("/api/collection", function(req) {
+    $.get("/api/collection", req => {
       req.forEach(sneaker => {
+        console.log(req, "dataapi");
         const $clone = $("#collectionSneaker")
           .clone()
           .removeAttr("id");
         $clone.find(".collectionSneakerName").text(sneaker.name);
         $clone.find(".collectionBrand").text(sneaker.brand);
         $clone.find(".collectionShoeName").text(sneaker.shoe);
-        if (!sneaker.media) {
-          $clone.find("img").prop("src", "/images/jordans.png");
-        }
         $clone.find("img").prop("src", sneaker.media);
         $clone.appendTo("#collectionSneakers");
       });
-      $.get("/api/wishlist", function(req) {
-        req.forEach(sneaker => {
-          const $clone1 = $("#wishlistSneaker")
-            .clone()
-            .removeAttr("id");
-          $clone1.find(".wishlistSneakerName").text(sneaker.name);
-          $clone1.find(".wishlistBrand").text(sneaker.brand);
-          $clone1.find(".wishlistShoeName").text(sneaker.shoe);
-          $clone1.find("img").prop("src", sneaker.media);
-          $clone1.appendTo("#wishlistSneakers");
-        });
+    });
+    $.get("/api/wishlist", req => {
+      req.forEach(sneaker => {
+        console.log(req, "dataapi");
+        const $clone = $("#wishlistSneaker")
+          .clone()
+          .removeAttr("id");
+        $clone.find(".wishlistSneakerName").text(sneaker.name);
+        $clone.find(".wishlistBrand").text(sneaker.brand);
+        $clone.find(".wishlistShoeName").text(sneaker.shoe);
+        $clone.find("img").prop("src", sneaker.media);
+        $clone.appendTo("#wishlistSneakers");
       });
     });
   });
 });
+
+// $(document).ready(function() {
+//   $.get("/api/user_data").then(function(data) {
+//     $(".member-name").text(data.userName);
+//     $.get("/api/collection", function(res) {
+//       for (let i = 0; i < res.length; i++) {
+//         if ([i] === 0) {
+//           $(
+//             `<div class="carousel-item active"><img src="${res[i].media}"/></div></div>`
+//           ).appendTo(".carousel-inner");
+//         }
+//         $(
+//           `<div class="carousel-item"><img src="${res[i].media}"/></div></div>`
+//         ).appendTo(".carousel-inner");
+//         $(
+//           // eslint-disable-next-line quotes
+//           '<li data-target="#myCarousel1" data-slide-to="' + i + '"></li>'
+//         ).appendTo(".carousel-indicators");
+//       }
+//       $(".carousel-item")
+//         .first()
+//         .addClass("active");
+//       $(".carousel-indicators > li")
+//         .first()
+//         .addClass("active");
+//       $("#myCarousel1").carousel();
+//     });
+//   });
+// });
