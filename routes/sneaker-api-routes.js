@@ -71,7 +71,6 @@ module.exports = function(app) {
       owned: req.body.owned,
       sneakeruserId: req.body.sneakeruserId,
       UserId: req.body.UserId
-
     }).then(dbCollection => {
       res.json(dbCollection);
     });

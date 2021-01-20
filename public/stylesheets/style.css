@@ -254,3 +254,13 @@ hr {
   background-color:white;
   color: #5090f0;
 }
+
+#sneaker-search-input {
+  display: inline-block;
+  width: 35rem;
+}
+
+#brand-search-input {
+  display: inline-block;
+  width: 35rem;
+}
