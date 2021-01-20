@@ -203,6 +203,12 @@ hr {
   width:465px;
 }
 
+.carousel {
+  width:640px;
+  height:360px;
+}
+
+
 /* Search Page */
 .random-search-btn button {
   border: none;
