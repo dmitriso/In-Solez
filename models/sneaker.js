@@ -6,10 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     retailPrice: DataTypes.INTEGER,
     releaseDate: DataTypes.STRING,
-    saleable: DataTypes.BOOLEAN,
-    tradeable: DataTypes.BOOLEAN,
     owned: DataTypes.BOOLEAN,
-    topFive: DataTypes.BOOLEAN,
+    favorite: DataTypes.BOOLEAN,
     media: DataTypes.STRING,
     sneakeruserID: DataTypes.INTEGER
   });
