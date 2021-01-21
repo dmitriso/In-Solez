@@ -20,7 +20,7 @@ const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(flash());
@@ -55,20 +55,25 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 // sessionStore.close();
 
 // view engine setup
-app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "views"));
-app.engine(
-  "hbs",
-  exphbs({
-    extname: "hbs",
-    defaultLayout: "index",
-    layoutsDir: __dirname + "/views/layouts/",
-    partialsDir: __dirname + "/views/partials/"
-  })
-);
+// app.set("view engine", "hbs");
+// app.set("views", path.join(__dirname, "views"));
+
+// app.engine(
+//   "hbs",
+//   exphbs({
+//     extname: "hbs",
+//     defaultLayout: "index",
+//     layoutsDir: __dirname + "/views/layouts/",
+//     partialsDir: __dirname + "/views/partials/"
+//   })
+// );
+
+app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
