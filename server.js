@@ -58,20 +58,6 @@ app.use(passport.session());
 
 // sessionStore.close();
 
-// view engine setup
-// app.set("view engine", "hbs");
-// app.set("views", path.join(__dirname, "views"));
-
-// app.engine(
-//   "hbs",
-//   exphbs({
-//     extname: "hbs",
-//     defaultLayout: "index",
-//     layoutsDir: __dirname + "/views/layouts/",
-//     partialsDir: __dirname + "/views/partials/"
-//   })
-// );
-
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
