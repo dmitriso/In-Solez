@@ -9,7 +9,7 @@ $(document).ready(() => {
       $.get("/api/collection", req => {
         console.log(req);
         req.forEach(sneaker => {
-          const $clone = $(".collectionSneaker")
+          const $clone = $("#collectionSneaker")
             .clone()
             .removeClass("hide");
           $clone.find(".collectionSneakerName").text(sneaker.name);
@@ -24,7 +24,7 @@ $(document).ready(() => {
       });
       $.get("/api/wishlist", req => {
         req.forEach(sneaker => {
-          const $clone = $(".wishlistSneaker")
+          const $clone = $("#wishlistSneaker")
             .clone()
             .removeClass("hide");
           $clone.find(".wishlistSneakerName").text(sneaker.name);

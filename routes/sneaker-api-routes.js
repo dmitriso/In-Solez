@@ -29,7 +29,7 @@ module.exports = function(app) {
         owned: false
       }
     }).then(dbWishlist => {
-      // console.log(dbWishlist);
+      console.log(dbWishlist);
       res.json(dbWishlist);
     });
   });
@@ -43,7 +43,7 @@ module.exports = function(app) {
         owned: true
       }
     }).then(dbCollection => {
-      // console.log(dbCollection);
+      console.log(dbCollection);
       res.json(dbCollection);
     });
   });
