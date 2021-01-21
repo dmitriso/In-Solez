@@ -4,17 +4,19 @@ $(document).ready(() => {
   // and updates the HTML on the page
   if (window.location.pathname === "/profile") {
     $.get("/api/user_data").then(data => {
+      console.log(data);
       $(".member-name").text(data.userName);
       $.get("/api/collection", req => {
+        console.log(req);
         req.forEach(sneaker => {
-          const $clone = $("#collectionSneaker")
+          const $clone = $(".collectionSneaker")
             .clone()
-            .removeAttr("id");
+            .removeClass("hide");
           $clone.find(".collectionSneakerName").text(sneaker.name);
           $clone.find(".collectionBrand").text(sneaker.brand);
           $clone.find(".collectionShoeName").text(sneaker.shoe);
           $clone.find("img").prop("src", sneaker.media);
-          $clone.find(".collectionFavorite-btn").attr({
+          $clone.find(".collectionDelete-btn").attr({
             id: `${sneaker.id}`
           });
           $clone.appendTo("#collectionSneakers");
@@ -22,13 +24,16 @@ $(document).ready(() => {
       });
       $.get("/api/wishlist", req => {
         req.forEach(sneaker => {
-          const $clone = $("#wishlistSneaker")
+          const $clone = $(".wishlistSneaker")
             .clone()
-            .removeAttr("id");
+            .removeClass("hide");
           $clone.find(".wishlistSneakerName").text(sneaker.name);
           $clone.find(".wishlistBrand").text(sneaker.brand);
           $clone.find(".wishlistShoeName").text(sneaker.shoe);
           $clone.find("img").prop("src", sneaker.media);
+          $clone.find(".wishlistDelete-btn").attr({
+            id: `${sneaker.id}`
+          });
           $clone.appendTo("#wishlistSneakers");
         });
       });

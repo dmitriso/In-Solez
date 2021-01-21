@@ -23,6 +23,7 @@ module.exports = function(app) {
 
   // THIS ROUTE CREATES A NEW USER ROW
   app.post("/api/signup", async (req, res) => {
+    console.log("backend signup")
     try {
       const user = req.body;
       await db.User.create({
@@ -54,24 +55,11 @@ module.exports = function(app) {
       res.json({});
     } else {
       res.json({
-        userName: req.user.userName,
-        id: req.user.id
+        newUser: {
+          userName: req.user.userName,
+          id: req.user.id
+        }
       });
     }
   });
-
-  // checks to see if the user is logged
-  // checkAuthenticated = ((req, res, next) => {
-  //   if (req.isAuthenticated()) {
-  //     next();
-  //   }
-  //   res.redirect("/login")
-  // });
-  // router.get("/logout",(req,res) => {
-  //   req.logout();
-  //   req.session.destroy(() => {
-  //     res.clearCookie("connect.sid");
-  //     res.redirect("/");
-  //   });
-  // })
 };
