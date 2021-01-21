@@ -20,10 +20,6 @@ $(document).ready(() => {
         .appendTo("#navigation");
     } else {
       $("<a>")
-        .attr("href", "/search")
-        .text("SEARCH")
-        .appendTo("#navigation");
-      $("<a>")
         .attr("href", "/signup")
         .text("SIGNUP")
         .appendTo("#navigation");

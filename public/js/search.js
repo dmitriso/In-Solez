@@ -41,10 +41,12 @@ function brand(selectedBrand, pageNum) {
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()
-        .removeAttr("id");
+        .removeAttr("id")
+        .removeClass("hide");
       $clone.find(".sneakerName").text(sneaker.name);
-      $clone.find(".brand").text(sneaker.brand);
+      $clone.find(".releaseDate").text(sneaker.releaseDate);
       $clone.find(".shoeName").text(sneaker.shoe);
+      $clone.find(".retailPrice").text(`$${sneaker.retailPrice}`);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
       if(newUser.id){}
       $clone.find(".collection-btn").attr({
@@ -67,10 +69,12 @@ function sneaker(sneakerInput, pageNum) {
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()
-        .removeAttr("id");
+        .removeAttr("id")
+        .removeClass("hide");
       $clone.find(".sneakerName").text(sneaker.name);
-      $clone.find(".brand").text(sneaker.brand);
+      $clone.find(".releaseDate").text(sneaker.releaseDate);
       $clone.find(".shoeName").text(sneaker.shoe);
+      $clone.find(".retailPrice").text(`$${sneaker.retailPrice}`);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`,
@@ -93,11 +97,12 @@ function randomSneakers(pageNum) {
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()
-        .removeAttr("id");
+        .removeAttr("id")
+        .removeClass("hide");
       $clone.find(".sneakerName").text(sneaker.name);
-      $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
-      $clone.find(".retailPrice").text(sneaker.retailPrice);
+      $clone.find(".releaseDate").text(sneaker.releaseDate);
+      $clone.find(".retailPrice").text(`$${sneaker.retailPrice}`);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`,
