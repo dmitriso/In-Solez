@@ -2,7 +2,7 @@
  A social platform app that lets users to view a database of sneakers, save it to their collection, showcase, compare, trade, and sell sneakers with other users.
 #
 
-Website Deployment Link: https://agile-scrubland-17621.herokuapp.com/
+Website Deployment Link: https://in-solez.herokuapp.com/
 #
 ## Table of Contents
 * [Project Description](#description)

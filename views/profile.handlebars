@@ -1,17 +1,12 @@
 <!-- Nav Bar Menu Items -->
-
-
-
 {{> navbar}}
 
-
-<form style="border:1px solid #ccc padding:10px">
+<div style="border:1px solid #ccc padding:10px">
   <div class="container">
-    
     <h1>PROFILE</h1>
     <p>Your Ultimate Sneaker Collection</p>
     <hr>
-    <p>Collection</p>
+    <p>YOUR COLLECTION</p>
     <div id="index-gallery">
       <div class="item">
         <div id="collectionSneakers">
@@ -21,17 +16,26 @@
                 <h2 class="collectionSneakerName"></h2>
                 <p class="collectionBrand"></p>
                 <p class="collectionShoeName"></p>
+                <p class="collectionRetailPrice"></p>
+                <p class="collectionReleaseDate"></p>
                 <img alt="sneaker" />
+                <button class="collectionFavorite-btn button">Add to Favorites for Collection</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
       <hr>
-      <p>Wishlist</p>
+      <p>YOUR WISH LIST</p>
       <div id="index-gallery">
         <div class="item">
           <div id="wishlistSneakers">
@@ -41,7 +45,10 @@
                   <h2 class="wishlistSneakerName"></h2>
                   <p class="wishlistBrand"></p>
                   <p class="wishlistShoeName"></p>
+                  <p class="wishlistRetailPrice"></p>
+                  <p class="wishlistReleaseDate"></p>
                   <img alt="sneaker" />
+                  <button class="wishlistFavorite-btn button">Add to Favorites for wishlist</button>
                 </div>
               </div>
             </div>
@@ -49,10 +56,5 @@
         </div>
       </div>
     </div>
-</form>
-<br>
-<br>
-<br>
-<br>
-
-</body>
+  </div>
+  </body>
