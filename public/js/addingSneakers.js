@@ -1,6 +1,7 @@
 $(document).ready(() => {
   // THIS BUTTON CLICK WILL CREATE A SHOE WITH AND PASS IN THE VALUE OF TRUE FOR OWNED
   $(document).on("click", ".collection-btn", function(event) {
+    console.log("clicked me!");
     event.preventDefault();
     console.log("collection add")
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
@@ -8,6 +9,7 @@ $(document).ready(() => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
           console.log(data, "adding collection");
+          console.log(data.newUser.id);
           createSneaker(
             sneakerData.brand,
             sneakerData.name,
@@ -16,7 +18,7 @@ $(document).ready(() => {
             sneakerData.releaseDate,
             true,
             sneakerData.media.thumbUrl,
-            data.id
+            data.newUser.id
           );
         });
       }
@@ -39,7 +41,7 @@ $(document).ready(() => {
             sneakerData.releaseDate,
             false,
             sneakerData.media.thumbUrl,
-            data.id
+            data.newUser.id
           );
         });
       }
@@ -66,6 +68,8 @@ $(document).ready(() => {
       media: media,
       sneakeruserId: userId,
       UserId: userId
+    }).then(() => {
+      console.log("blah");
     }).catch(handleLoginErr);
   }
   // CREATED TO HANDLE THE ERROR.

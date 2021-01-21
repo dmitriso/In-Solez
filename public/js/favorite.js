@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 $(document).ready(() => {
   $(document).on("click", ".collectionFavorite-btn", function(e) {
-    // e.preventDefault();
+    e.preventDefault();
     console.log("hello");
     console.log(this.id);
     addFavorite(this.id, true);
