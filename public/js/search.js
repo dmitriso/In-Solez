@@ -11,7 +11,7 @@ $(document).ready(() => {
   // eslint-disable-next-line prefer-arrow-callback
   $("#brand-search").on("submit", function(event) {
     event.preventDefault();
-    const selectedBrand = $("#brand-search-input")
+    const selectedBrand = $(".brand-search-input")
       .val()
       .trim();
     const pageNum = randomNumber();
@@ -21,7 +21,7 @@ $(document).ready(() => {
   // eslint-disable-next-line prefer-arrow-callback
   $("#sneaker-search").on("submit", function(event) {
     event.preventDefault();
-    const sneakerInput = $("#sneaker-search-input")
+    const sneakerInput = $(".sneaker-search-input")
       .val()
       .trim();
     const pageNum = randomNumber();
@@ -62,7 +62,7 @@ function sneaker(sneakerInput, pageNum) {
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${sneakerInput}&page=${pageNum}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
-      const $clone = $(".sneaker")
+      const $clone = $("#sneaker")
         .clone()
         .removeAttr("id");
       $clone.find(".sneakerName").text(sneaker.name);
@@ -84,6 +84,7 @@ function randomSneakers(pageNum) {
   $.get(
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&page=${pageNum}`
   ).then(sneakerData => {
+    console.log(sneakerData);
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()
@@ -91,6 +92,7 @@ function randomSneakers(pageNum) {
       $clone.find(".sneakerName").text(sneaker.name);
       $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
+      $clone.find(".retailPrice").text(sneaker.retailPrice);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`
