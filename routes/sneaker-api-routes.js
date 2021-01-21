@@ -8,8 +8,19 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/sneaker/favorite/:id", (req, res) => {
+    db.Sneaker.update({
+      topFive: req.body.topFive,
+      where: {
+        id: req.params.id
+      }
+    }).then(results => {
+      res.json(results);
+    });
+  });
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
   app.get("/api/wishlist", (req, res) => {
+    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
@@ -23,6 +34,7 @@ module.exports = function(app) {
 
   //THIS RETIREVES A USERS COLLECTION TO DISPLAY IT
   app.get("/api/collection", (req, res) => {
+    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
@@ -34,22 +46,8 @@ module.exports = function(app) {
     });
   });
 
-  // // ROUTE FOR RETREIVING TOP 5 SNEAKERS IN A USERS COLLECTION
-  // app.get("/api/topFive", (req, res) => {
-  //   db.Sneaker.findAll({
-  //     where: {
-  //       UserId: req.user.id,
-  //       owned: true,
-  //       topFive: true
-  //     }
-  //   }).then(dbTopFive => {
-  //     res.json(dbTopFive);
-  //   });
-  // });
-
   //ROUTE FOR RETREIVING TOP 5 SNEAKERS IN A USERS COLLECTION
   app.get("/api/topFive", (req, res) => {
-    console.log("contact");
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
@@ -57,13 +55,9 @@ module.exports = function(app) {
         topFive: true
       }
     }).then(dbTopFive => {
-      console.log(dbTopFive);
       res.json(dbTopFive);
     });
   });
-
-  // THIS ROUTE IS USED TO ACCESS THE DATABASE TO SEE IF THERE IS DATA USING AND RETURNING HANDLEBARS
-  // app.get("/api/topFive", (req,))
 
   // THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
   app.post("/api/createSneaker", (req, res) => {
@@ -76,8 +70,7 @@ module.exports = function(app) {
       media: req.body.media,
       owned: req.body.owned,
       sneakeruserId: req.body.sneakeruserId,
-      UserId: req.body.UserId,
-      topFive: req.body.topFive
+      UserId: req.body.UserId
     }).then(dbCollection => {
       res.json(dbCollection);
     });
