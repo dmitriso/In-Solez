@@ -1,37 +1,40 @@
 /* eslint-disable prefer-arrow-callback */
 $(document).ready(() => {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(data => {
-    console.log(data);
-    $(".member-name").text(data.userName);
-    $.get("/api/collection", req => {
-      req.forEach(sneaker => {
-        console.log(req, "dataapi");
-        const $clone = $("#collectionSneaker")
-          .clone()
-          .removeAttr("id");
-        $clone.find(".collectionSneakerName").text(sneaker.name);
-        $clone.find(".collectionBrand").text(sneaker.brand);
-        $clone.find(".collectionShoeName").text(sneaker.shoe);
-        $clone.find("img").prop("src", sneaker.media);
-        $clone.appendTo("#collectionSneakers");
+  console.log(window.location.pathname);
+  if (window.location.pathname === "/profile") {
+    // This file just does a GET request to figure out which user is logged in
+    // and updates the HTML on the page
+    $.get("/api/user_data").then(data => {
+      console.log(data);
+      $(".member-name").text(data.userName);
+      $.get("/api/collection", req => {
+        req.forEach(sneaker => {
+          console.log(req, "dataapi");
+          const $clone = $("#collectionSneaker")
+            .clone()
+            .removeAttr("id");
+          $clone.find(".collectionSneakerName").text(sneaker.name);
+          $clone.find(".collectionBrand").text(sneaker.brand);
+          $clone.find(".collectionShoeName").text(sneaker.shoe);
+          $clone.find("img").prop("src", sneaker.media);
+          $clone.appendTo("#collectionSneakers");
+        });
+      });
+      $.get("/api/wishlist", req => {
+        req.forEach(sneaker => {
+          console.log(req, "dataapi");
+          const $clone = $("#wishlistSneaker")
+            .clone()
+            .removeAttr("id");
+          $clone.find(".wishlistSneakerName").text(sneaker.name);
+          $clone.find(".wishlistBrand").text(sneaker.brand);
+          $clone.find(".wishlistShoeName").text(sneaker.shoe);
+          $clone.find("img").prop("src", sneaker.media);
+          $clone.appendTo("#wishlistSneakers");
+        });
       });
     });
-    $.get("/api/wishlist", req => {
-      req.forEach(sneaker => {
-        console.log(req, "dataapi");
-        const $clone = $("#wishlistSneaker")
-          .clone()
-          .removeAttr("id");
-        $clone.find(".wishlistSneakerName").text(sneaker.name);
-        $clone.find(".wishlistBrand").text(sneaker.brand);
-        $clone.find(".wishlistShoeName").text(sneaker.shoe);
-        $clone.find("img").prop("src", sneaker.media);
-        $clone.appendTo("#wishlistSneakers");
-      });
-    });
-  });
+  }
 });
 
 // $(document).ready(function() {
@@ -62,3 +65,5 @@ $(document).ready(() => {
 //     });
 //   });
 // });
+
+// look for a way to access the database in if statement
