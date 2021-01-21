@@ -2,6 +2,7 @@ $(document).ready(() => {
   // THIS BUTTON CLICK WILL CREATE A SHOE WITH AND PASS IN THE VALUE OF TRUE FOR OWNED
   $(document).on("click", ".collection-btn", function(event) {
     event.preventDefault();
+    console.log("collection add")
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
       sneakersData => {
         const sneakerData = sneakersData.results[0];
@@ -24,7 +25,7 @@ $(document).ready(() => {
   // THIS BUTTON CLICK WILL CREATE A SHOE WITH OWNED BEING PASSED A VALUE OF FALSE
   $(document).on("click", ".wishlist-btn", function(event) {
     event.preventDefault();
-    console.log(this.id);
+    console.log("wishlistadd");
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
       sneakersData => {
         const sneakerData = sneakersData.results[0];

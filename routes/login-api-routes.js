@@ -23,6 +23,7 @@ module.exports = function(app) {
 
   // THIS ROUTE CREATES A NEW USER ROW
   app.post("/api/signup", async (req, res) => {
+    console.log("backend");
     try {
       const user = req.body;
       await db.User.create({

@@ -7,11 +7,10 @@ $(document).ready(() => {
     addFavorite(this.id, true);
   });
 });
-function addFavorite(id, topFive) {
+function addFavorite(id) {
   $.ajax({
     method: "PUT",
-    url: "/api/sneaker/favorite" + id,
-    data: topFive
+    url: "/api/sneaker/favorite" + id
   })
     .then(response => {
       console.log(response);

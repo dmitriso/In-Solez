@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   app.put("/api/sneaker/favorite/:id", (req, res) => {
     db.Sneaker.update({
-      topFive: req.body.topFive,
+      topFive: true,
       where: {
         id: req.params.id
       }

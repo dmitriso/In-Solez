@@ -46,14 +46,15 @@ function brand(selectedBrand, pageNum) {
       $clone.find(".brand").text(sneaker.brand);
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
+      if(newUser.id){}
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`,
-        class: "sneaker-button"
+        class: "sneaker-button collection-btn"
       });
       $clone.find(".wishlist-btn").attr({
         id: `${sneaker.id}`,
-        class: "sneaker-button"
-      });
+        class: "sneaker-button "
+      });}
       $clone.appendTo("#sneakers");
     });
   });
