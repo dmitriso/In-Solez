@@ -9,8 +9,9 @@ $(document).ready(() => {
       $.get("/api/collection", req => {
         console.log(req);
         req.forEach(sneaker => {
-          const $clone = $(".collectionSneaker")
+          const $clone = $("#collectionSneaker")
             .clone()
+            .removeAttr("id")
             .removeClass("hide");
           $clone.find(".collectionSneakerName").text(sneaker.name);
           $clone.find(".collectionBrand").text(sneaker.brand);
