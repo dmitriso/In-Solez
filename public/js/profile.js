@@ -25,7 +25,7 @@ $(document).ready(() => {
       });
       $.get("/api/wishlist", req => {
         req.forEach(sneaker => {
-          const $clone = $(".wishlistSneaker")
+          const $clone = $("#wishlistSneaker")
             .clone()
             .removeClass("hide");
           $clone.find(".wishlistSneakerName").text(sneaker.name);
