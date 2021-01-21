@@ -33,12 +33,18 @@ module.exports = function(app) {
         password: user.password,
         email: user.email
       });
-      console.log(user);
+      signupSuccess();
       res.status(307).end();
     } catch (err) {
       res.status(401).redirect("/signup");
     }
   });
+
+  function signupSuccess() {
+    $("#alert-signup").text("You've Created A Profile. Try Logging In!");
+    $("#alert-signup").fadeIn(500);
+    $("#alert-signup").fadeOut(10000);
+  }
 
   // ROUTE FOR LOGGING USER OUT
   app.get("/logout", (req, res) => {
