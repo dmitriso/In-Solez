@@ -274,3 +274,11 @@ hr {
 .hide {
   display: hidden;
 }
+
+h2 {
+  color: #5090f0;
+}
+
+.sneakerBox {
+  color: black !important;
+}

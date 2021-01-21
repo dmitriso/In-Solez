@@ -11,10 +11,13 @@ $(document).ready(() => {
         req.forEach(sneaker => {
           const $clone = $("#collectionSneaker")
             .clone()
+            .removeAttr("id")
             .removeClass("hide");
           $clone.find(".collectionSneakerName").text(sneaker.name);
-          $clone.find(".collectionBrand").text(sneaker.brand);
           $clone.find(".collectionShoeName").text(sneaker.shoe);
+          $clone.find(".collectionReleaseDate").text(sneaker.releaseDate);
+          // eslint-disable-next-line prettier/prettier
+          $clone.find(".collectionRetailPrice").text(`$${sneaker.retailPrice}`);
           $clone.find("img").prop("src", sneaker.media);
           $clone.find(".collectionDelete-btn").attr({
             id: `${sneaker.id}`
@@ -26,10 +29,12 @@ $(document).ready(() => {
         req.forEach(sneaker => {
           const $clone = $("#wishlistSneaker")
             .clone()
+            .removeAttr("id")
             .removeClass("hide");
           $clone.find(".wishlistSneakerName").text(sneaker.name);
-          $clone.find(".wishlistBrand").text(sneaker.brand);
           $clone.find(".wishlistShoeName").text(sneaker.shoe);
+          $clone.find(".wishlistReleaseDate").text(sneaker.releaseDate);
+          $clone.find(".wishlistRetailPrice").text(`$${sneaker.retailPrice}`);
           $clone.find("img").prop("src", sneaker.media);
           $clone.find(".wishlistDelete-btn").attr({
             id: `${sneaker.id}`
