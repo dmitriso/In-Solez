@@ -100,11 +100,11 @@ function randomSneakers(pageNum) {
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`,
-        class: "sneaker-button"
+        class: "collection-btn sneaker-button"
       });
       $clone.find(".wishlist-btn").attr({
         id: `${sneaker.id}`,
-        class: "sneaker-button"
+        class: "wishlist-btn sneaker-button"
       });
       $clone.appendTo("#sneakers");
     });

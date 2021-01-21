@@ -10,14 +10,16 @@ module.exports = function(app) {
 
   app.put("/api/sneaker/favorite/:id", (req, res) => {
     db.Sneaker.update({
-      topFive: req.body.topFive,
+      topFive: true,
       where: {
-        id: req.params.id
+        id: req.params.id,
+        owned: true
       }
     }).then(results => {
       res.json(results);
     });
   });
+
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
   app.get("/api/wishlist", (req, res) => {
     console.log(req.user.id);
@@ -61,6 +63,7 @@ module.exports = function(app) {
 
   // THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
   app.post("/api/createSneaker", (req, res) => {
+    console.log("about sneaker created");
     db.Sneaker.create({
       brand: req.body.brand,
       name: req.body.name,
@@ -72,6 +75,7 @@ module.exports = function(app) {
       sneakeruserId: req.body.sneakeruserId,
       UserId: req.body.UserId
     }).then(dbCollection => {
+      console.log("sneaker created");
       res.json(dbCollection);
     });
   });
@@ -99,13 +103,14 @@ module.exports = function(app) {
   });
 
   //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
-  app.delete("/api/sneakers", (req, res) => {
+  app.delete("/api/sneaker/delete/:id", (req, res) => {
+    console.log("deleted");
     db.Sneaker.destroy({
       where: {
         id: req.params.id
       }
-    }).then(dbSneaker => {
-      res.json(dbSneaker);
+    }).then(() => {
+      res.status(200).end();
     });
   });
 

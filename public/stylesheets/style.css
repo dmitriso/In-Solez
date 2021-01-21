@@ -270,3 +270,7 @@ hr {
   display: inline-block !important;
   width: 45rem !important;
 }
+
+.hide {
+  display: hidden;
+}
