@@ -67,9 +67,11 @@ $(document).ready(() => {
       media: media,
       sneakeruserId: userId,
       UserId: userId
-    }).then(() => {
-      console.log("blah");
-    }).catch(handleLoginErr);
+    })
+      .then(() => {
+        console.log("blah");
+      })
+      .catch(handleLoginErr);
   }
   // CREATED TO HANDLE THE ERROR.
   function handleLoginErr(err) {
