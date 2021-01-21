@@ -2,16 +2,16 @@ $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   // eslint-disable-next-line prefer-arrow-callback
-  $("#random-search-btn").on("click", function (event) {
+  $("#random-search-btn").on("click", function(event) {
     event.preventDefault();
     const pageNum = randomNumber();
     randomSneakers(pageNum);
   });
 
   // eslint-disable-next-line prefer-arrow-callback
-  $("#brand-search").on("submit", function (event) {
+  $("#brand-search").on("submit", function(event) {
     event.preventDefault();
-    const selectedBrand = $("#brand-search-input")
+    const selectedBrand = $(".brand-search-input")
       .val()
       .trim();
     const pageNum = randomNumber();
@@ -19,9 +19,9 @@ $(document).ready(() => {
   });
 
   // eslint-disable-next-line prefer-arrow-callback
-  $("#sneaker-search").on("submit", function (event) {
+  $("#sneaker-search").on("submit", function(event) {
     event.preventDefault();
-    const sneakerInput = $("#sneaker-search-input")
+    const sneakerInput = $(".sneaker-search-input")
       .val()
       .trim();
     const pageNum = randomNumber();
@@ -62,7 +62,7 @@ function sneaker(sneakerInput, pageNum) {
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${sneakerInput}&page=${pageNum}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
-      const $clone = $(".sneaker")
+      const $clone = $("#sneaker")
         .clone()
         .removeAttr("id");
       $clone.find(".sneakerName").text(sneaker.name);
@@ -84,6 +84,7 @@ function randomSneakers(pageNum) {
   $.get(
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&page=${pageNum}`
   ).then(sneakerData => {
+    console.log(sneakerData);
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()
@@ -99,7 +100,7 @@ function randomSneakers(pageNum) {
       $clone.find(".wishlist-btn").attr({
         id: `${sneaker.id}`
       });
-      $clone.appendTo("sneakers");
+      $clone.appendTo("#sneakers");
     });
   });
 }
