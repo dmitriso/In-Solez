@@ -1,5 +1,4 @@
 $(document).ready(() => {
-  console.log(window.location.pathname);
   if (window.location.pathname === "/home") {
     $.get("/api/sneakers").then(results => {
       for (var i = 0; i < 5; i++) {
