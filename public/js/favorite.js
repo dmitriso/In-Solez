@@ -2,7 +2,11 @@
 $(document).ready(() => {
   $(document).on("click", ".collectionFavorite-btn", function(e) {
     e.preventDefault();
-    console.log("hello");
+    $.get("/api/sneakers").then(results => {
+        console.log("hello1");
+      console.log(results.length);
+    });
+    console.log("hello2");
     console.log(this.id);
     addFavorite(this.id, true);
   });
