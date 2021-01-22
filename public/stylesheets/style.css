@@ -282,3 +282,19 @@ h2 {
 .sneakerBox {
   color: black !important;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  margin: 0 auto !important;
+}
+
+.flex {
+  display:flex;
+}
+
+.order {
+  order:3;
+}
