@@ -48,7 +48,6 @@ function brand(selectedBrand, pageNum) {
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find(".retailPrice").text(`$${sneaker.retailPrice}`);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
-      if(newUser.id){}
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`,
         class: "sneaker-button collection-btn"
