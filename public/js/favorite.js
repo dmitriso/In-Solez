@@ -2,15 +2,11 @@
 $(document).ready(() => {
   $(document).on("click", ".collectionFavorite-btn", function(e) {
     e.preventDefault();
-    console.log("Clicked");
-    $.get("/api/sneakers").then(results => {
-      console.log(results, "inside ajax");
-    });
-    console.log("hello");
-    console.log(this.id);
-    addFavorite(this.id);
+    $(this).toggleClass("toggle");
+    // addFavorite(this.id);
   });
 });
+
 function addFavorite(id) {
   $.ajax({
     method: "PUT",
