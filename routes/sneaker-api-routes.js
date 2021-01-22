@@ -64,24 +64,13 @@ module.exports = function (app) {
   });
 
   //THIS GETS A SPECIFIC SNEAKER BY "SHOE" AND RETURNS IT TO THE USER.
-  app.get("/api/sneakers/:shoe", (req, res) => {
+  app.get("/api/sneakers/:id", (req, res) => {
     db.Sneaker.findOne({
       where: {
-        shoe: req.params.shoe
+        id: req.params.id
       }
     }).then(dbSneaker => {
       res.json(dbSneaker);
-    });
-  });
-
-  // GET ROUTE FOR RETURNING POSTS OF A SPECFIC BRAND
-  app.get("/api/posts/category/:brand", (req, res) => {
-    db.Sneaker.findAll({
-      where: {
-        brand: req.params.brand
-      }
-    }).then(dbBrand => {
-      res.json(dbBrand);
     });
   });
 
