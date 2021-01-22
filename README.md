@@ -2,18 +2,17 @@
  A social platform app that lets users to view a database of sneakers, save it to their collection, showcase, compare, trade, and sell sneakers with other users.
 #
 
-Website Deployment Link: https://in-solez.herokuapp.com/
 #
 ## Table of Contents
 * [Project Description](#description)
-* [Built with](#installation)
+* [Built with](#Technology)
 * [Contributing](#contributing)
 * [Liscensing](#liscensing)
-* [Contact](#contact)
+* [Links](#links)
 
 <br>
 
-# Project Description
+# Description
 Do you remember back in the day when you showed up to school with a fresh set of kicks? Or do you remember the camaraderie you made with your friends as you showed your shoes off and checked out who had on what. From those days, you have grown older and became a "Sneaker Head."
 <br>
 <br>
@@ -32,8 +31,8 @@ The name "In-Solez" came from the notion that every sneaker has a sole inside of
 <br>
 
 
-# Built With
-The In-Solez application was created with these coding languages and dependencies:
+# Technology
+The In-Solez application was created with these coding languages and npm packages:
 * HTML
 * CSS
 * JavaScript
@@ -83,8 +82,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <br>
 
-# Contact
-In-Solez Github Repository Link: https://github.com/dmitriso/In-Solez
+# Links
+
+* [In-Solez Github Repository Link](https://github.com/dmitriso/In-Solez)
+
+* [Website Deployment Link](https://in-solez.herokuapp.com/)
+
+* [Demo Video Link](https://youtu.be/IfFXNL_tDx4)
+
+
 
 <br>
 
