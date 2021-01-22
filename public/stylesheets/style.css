@@ -282,6 +282,7 @@ h2 {
 .sneakerBox {
   color: black !important;
 }
+
 .active{
   border: none;
   outline: 0;
@@ -293,6 +294,7 @@ h2 {
   cursor: pointer;
   font-size: 18px;
 }
+
 .toggle{
   border: none;
   outline: 0;
@@ -303,6 +305,7 @@ h2 {
   text-align: center;
   cursor: pointer;
   font-size: 18px;
+}
 
 .text-center {
   text-align: center;
