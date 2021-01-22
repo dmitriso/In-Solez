@@ -1,29 +1,16 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then(dbSneaker => {
-      console.log("backend");
+      console.log(dbSneaker);
       res.json(dbSneaker);
     });
   });
 
-  // app.put("/api/sneaker/favorite/:id", (req, res) => {
-  //   db.Sneaker.update({
-  //     favorite: true,
-  //     where: {
-  //       id: req.params.id,
-  //       owned: true
-  //     }
-  //   }).then(results => {
-  //     res.json(results);
-  //   });
-  // });
-
   // THIS RETRIEVES ALL SNEAKERS IN THE WISHLIST TABLE
   app.get("/api/wishlist", (req, res) => {
-    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
@@ -36,7 +23,6 @@ module.exports = function(app) {
 
   //THIS RETIREVES A USERS COLLECTION TO DISPLAY IT
   app.get("/api/collection", (req, res) => {
-    console.log(req.user.id);
     db.Sneaker.findAll({
       where: {
         UserId: req.user.id,
@@ -46,6 +32,19 @@ module.exports = function(app) {
       res.json(dbCollection);
     });
   });
+
+  // //ROUTE FOR RETREIVING TOP 5 SNEAKERS IN A USERS COLLECTION
+  // app.get("/api/topFive", (req, res) => {
+  //   db.Sneaker.findAll({
+  //     where: {
+  //       UserId: req.user.id,
+  //       owned: true,
+  //       topFive: true
+  //     }
+  //   }).then(dbTopFive => {
+  //     res.json(dbTopFive);
+  //   });
+  // });
 
   // THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
   app.post("/api/createSneaker", (req, res) => {
@@ -77,7 +76,6 @@ module.exports = function(app) {
 
   //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
   app.delete("/api/sneaker/delete/:id", (req, res) => {
-    console.log("deleted");
     db.Sneaker.destroy({
       where: {
         id: req.params.id
@@ -88,12 +86,15 @@ module.exports = function(app) {
   });
 
   // THIS UPDATES A SNEAKERS OWNED STATUS
-  app.put("/api/sneaker/:id", (req, res) => {
-    db.Sneaker.update(req.owned, {
+  app.put("/api/sneaker/favorite/:id", (req, res) => {
+    db.Sneaker.update({
+      favorite: true,
       where: {
+        owned: true,
         id: req.params.id
       }
     }).then(dbSneaker => {
+      console.log(dbSneaker);
       res.json(dbSneaker);
     });
   });

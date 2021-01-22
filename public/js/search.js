@@ -48,13 +48,14 @@ function brand(selectedBrand, pageNum) {
       $clone.find(".shoeName").text(sneaker.shoe);
       $clone.find(".retailPrice").text(`$${sneaker.retailPrice}`);
       $clone.find("img").prop("src", sneaker.media.thumbUrl);
+      if(newUser.id){}
       $clone.find(".collection-btn").attr({
         id: `${sneaker.id}`,
-        class: "sneaker-button"
+        class: "sneaker-button collection-btn"
       });
       $clone.find(".wishlist-btn").attr({
         id: `${sneaker.id}`,
-        class: "sneaker-button"
+        class: "sneaker-button "
       });
       $clone.appendTo("#sneakers");
     });
@@ -92,7 +93,6 @@ function randomSneakers(pageNum) {
   $.get(
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&page=${pageNum}`
   ).then(sneakerData => {
-    console.log(sneakerData);
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()

@@ -1,14 +1,12 @@
 $(document).ready(() => {
   // THIS BUTTON CLICK WILL CREATE A SHOE WITH AND PASS IN THE VALUE OF TRUE FOR OWNED
   $(document).on("click", ".collection-btn", function(event) {
-    console.log("clicked me!");
     event.preventDefault();
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
       sneakersData => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
-          console.log(data, "adding collection");
-          console.log(data.newUser.id);
+          console.log(data);
           createSneaker(
             sneakerData.brand,
             sneakerData.name,
@@ -26,12 +24,11 @@ $(document).ready(() => {
   // THIS BUTTON CLICK WILL CREATE A SHOE WITH OWNED BEING PASSED A VALUE OF FALSE
   $(document).on("click", ".wishlist-btn", function(event) {
     event.preventDefault();
-    console.log(this.id);
     $.get(`https://api.thesneakerdatabase.com/v1/sneakers/${this.id}`).then(
       sneakersData => {
         const sneakerData = sneakersData.results[0];
         $.get("/api/user_data").then(data => {
-          console.log(data, "adding wishlist");
+          console.log(data);
           createSneaker(
             sneakerData.brand,
             sneakerData.name,
@@ -69,7 +66,7 @@ $(document).ready(() => {
       UserId: userId
     })
       .then(() => {
-        console.log("blah");
+        console.log("Status 200");
       })
       .catch(handleLoginErr);
   }

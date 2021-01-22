@@ -1,6 +1,5 @@
 $(document).ready(() => {
   $.get("/api/user_data").then(data => {
-    console.log(data);
     if (data.newUser) {
       $("<a>")
         .attr("href", "/logout")
