@@ -2,9 +2,13 @@
 $(document).ready(() => {
   $(document).on("click", ".collectionFavorite-btn", function(e) {
     e.preventDefault();
+    console.log("Clicked");
+    $.get("/api/sneakers").then(results => {
+      console.log(results, "inside ajax");
+    });
     console.log("hello");
     console.log(this.id);
-    addFavorite(this.id, true);
+    addFavorite(this.id);
   });
 });
 function addFavorite(id) {

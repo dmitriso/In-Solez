@@ -4,15 +4,17 @@ const isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 
 module.exports = function(app) {
   //THIS ROUTES THE USER TO THE WELCOME
-  app.get("/", (req, res) => {
+  app.get("/", isNotAuthenticated, (req, res) => {
     // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
-    // if (req.user) {
-    //   res.redirect("/profile");
-    // }
-    res.render("welcome", { title: "InSolez||Welcome" });
+    if (req.user) {
+      res.redirect("/profile");
+    }
+    res.render("welcome", {
+      title: "InSolez||Welcome"
+    });
   });
 
-  app.get("/home", (req, res) => {
+  app.get("/home", isAuthenticated, (req, res) => {
     // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     // if (req.user) {
     //   res.redirect("/profile");
@@ -27,10 +29,12 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/profile");
     }
-    res.render("login", { title: "InSolez||Login" });
+    res.render("login", {
+      title: "InSolez||Login"
+    });
   });
 
-  app.get("/search", (req, res) => {
+  app.get("/search", isAuthenticated, (req, res) => {
     // IF THE USER ALREADY HAS AN ACCOUNT SEND THEM TO THE MEMBERS PAGE
     res.render("search", {
       title: "InSolez||Search"
@@ -50,6 +54,8 @@ module.exports = function(app) {
   // HERE WE'VE ADDED OUR isAuthenticated MIDDLEWARE TO THIS ROUTE.
   // IF A USER WHO IS NOT LOGGED IN TRIES TO ACCESS THIS ROUTE THEY WILL BE REDIRECTED TO THE SIGNUP PAGE.
   app.get("/profile", isAuthenticated, (req, res) => {
-    res.render("profile", { title: "InSolez||Profile" });
+    res.render("profile", {
+      title: "InSolez||Profile"
+    });
   });
 };

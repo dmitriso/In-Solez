@@ -56,7 +56,7 @@ function brand(selectedBrand, pageNum) {
       $clone.find(".wishlist-btn").attr({
         id: `${sneaker.id}`,
         class: "sneaker-button "
-      });}
+      });
       $clone.appendTo("#sneakers");
     });
   });
@@ -93,7 +93,6 @@ function randomSneakers(pageNum) {
   $.get(
     `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&page=${pageNum}`
   ).then(sneakerData => {
-    console.log(sneakerData);
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")
         .clone()

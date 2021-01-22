@@ -4,10 +4,8 @@ $(document).ready(() => {
   // and updates the HTML on the page
   if (window.location.pathname === "/profile") {
     $.get("/api/user_data").then(data => {
-      console.log(data);
       $(".member-name").text(data.userName);
       $.get("/api/collection", req => {
-        console.log(req);
         req.forEach(sneaker => {
           const $clone = $("#collectionSneaker")
             .clone()
@@ -20,6 +18,9 @@ $(document).ready(() => {
           $clone.find(".collectionRetailPrice").text(`$${sneaker.retailPrice}`);
           $clone.find("img").prop("src", sneaker.media);
           $clone.find(".collectionDelete-btn").attr({
+            id: `${sneaker.id}`
+          });
+          $clone.find(".collectionFavorite-btn").attr({
             id: `${sneaker.id}`
           });
           $clone.appendTo("#collectionSneakers");

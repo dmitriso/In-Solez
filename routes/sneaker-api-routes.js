@@ -1,22 +1,11 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   //THIS RETRIEVES ALL SNEAKERS IN THE DATABASE AND RETURNS THEM.
   app.get("/api/sneakers", (req, res) => {
     db.Sneaker.findAll({}).then(dbSneaker => {
+      console.log(dbSneaker);
       res.json(dbSneaker);
-    });
-  });
-
-  app.put("/api/sneaker/favorite/:id", (req, res) => {
-    db.Sneaker.update({
-      favorite: true,
-      where: {
-        id: req.params.id,
-        owned: true
-      }
-    }).then(results => {
-      res.json(results);
     });
   });
 
@@ -28,7 +17,6 @@ module.exports = function(app) {
         owned: false
       }
     }).then(dbWishlist => {
-      console.log(dbWishlist);
       res.json(dbWishlist);
     });
   });
@@ -41,27 +29,25 @@ module.exports = function(app) {
         owned: true
       }
     }).then(dbCollection => {
-      console.log(dbCollection);
       res.json(dbCollection);
     });
   });
 
-  //ROUTE FOR RETREIVING TOP 5 SNEAKERS IN A USERS COLLECTION
-  app.get("/api/topFive", (req, res) => {
-    db.Sneaker.findAll({
-      where: {
-        UserId: req.user.id,
-        owned: true,
-        topFive: true
-      }
-    }).then(dbTopFive => {
-      res.json(dbTopFive);
-    });
-  });
+  // //ROUTE FOR RETREIVING TOP 5 SNEAKERS IN A USERS COLLECTION
+  // app.get("/api/topFive", (req, res) => {
+  //   db.Sneaker.findAll({
+  //     where: {
+  //       UserId: req.user.id,
+  //       owned: true,
+  //       topFive: true
+  //     }
+  //   }).then(dbTopFive => {
+  //     res.json(dbTopFive);
+  //   });
+  // });
 
   // THIS ADDS THE SNEAKER TO THE SNEAKERS TABLE
   app.post("/api/createSneaker", (req, res) => {
-    console.log("about sneaker created");
     db.Sneaker.create({
       brand: req.body.brand,
       name: req.body.name,
@@ -73,7 +59,6 @@ module.exports = function(app) {
       sneakeruserId: req.body.sneakeruserId,
       UserId: req.body.UserId
     }).then(dbCollection => {
-      console.log("sneaker created");
       res.json(dbCollection);
     });
   });
@@ -102,7 +87,6 @@ module.exports = function(app) {
 
   //THIS REMOVES A SNEAKER FROM THE COLLECTION BY ITS ID
   app.delete("/api/sneaker/delete/:id", (req, res) => {
-    console.log("deleted");
     db.Sneaker.destroy({
       where: {
         id: req.params.id
@@ -113,12 +97,15 @@ module.exports = function(app) {
   });
 
   // THIS UPDATES A SNEAKERS OWNED STATUS
-  app.put("/api/sneaker/:id", (req, res) => {
-    db.Sneaker.update(req.owned, {
+  app.put("/api/sneaker/favorite/:id", (req, res) => {
+    db.Sneaker.update({
+      favorite: true,
       where: {
+        owned: true,
         id: req.params.id
       }
     }).then(dbSneaker => {
+      console.log(dbSneaker);
       res.json(dbSneaker);
     });
   });
