@@ -61,9 +61,9 @@ function brand(selectedBrand, pageNum) {
   });
 }
 
-function sneaker(sneakerInput, pageNum) {
+function sneaker(sneakerInput) {
   $.get(
-    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${sneakerInput}&page=${pageNum}`
+    `https://api.thesneakerdatabase.com/v1/sneakers?limit=15&shoe=${sneakerInput}`
   ).then(sneakerData => {
     sneakerData.results.forEach(sneaker => {
       const $clone = $("#sneaker")

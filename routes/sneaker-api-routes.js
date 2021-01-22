@@ -87,6 +87,7 @@ module.exports = function (app) {
 
   // THIS UPDATES A SNEAKERS OWNED STATUS
   app.put("/api/sneaker/favorite/:id", (req, res) => {
+    console.log(req.params.id);
     db.Sneaker.update({
       favorite: true,
       where: {
